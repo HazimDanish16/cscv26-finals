@@ -74,7 +74,7 @@ cat <<'APT'
      nodejs default-jre golang gdb-multiarch ruby-full \
      qemu-user qemu-user-static patchelf libfplll-dev libgmp-dev apktool default-jdk-headless \
      multimon-ng minimodem direwolf libsox-fmt-all tcpflow tcpxtract \
-     fcrackzip
+     fcrackzip testdisk ewf-tools afflib-tools
    sudo gem install zsteg one_gadget
 APT
 echo "   (tested resolvable against a clean Ubuntu 24.04 image; if your WSL is a different"
