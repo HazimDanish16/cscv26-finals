@@ -90,3 +90,16 @@ challenge at a time with the user, full attention, no competing parallel work.
   challenge, never to run a second challenge's critical path in parallel with the current one.
 - Check if CTFd awards a first-blood bonus on top of decay - if so, speed matters even more.
 - Claim a challenge in challs/INDEX.md before starting so the user's teammate doesn't duplicate it.
+## Quota awareness (team-shared, slow-refilling)
+Queries against a live AI/LLM challenge target usually burn a shared team quota that refills
+slowly - treat each live query as costly, not free to retry. tools/ai_prompt_fuzz.py defaults to
+--limit 5 and stops at the first hit (verified: stops immediately after a hit rather than
+continuing through the rest of the queue) - raise --limit or pass --all only deliberately.
+Prefer reviewing partial-refusal responses by eye and crafting one targeted --extra follow-up
+over spraying the whole payload list. This likely applies to other rate-limited live targets too
+(web endpoints with aggressive throttling, remote pwn services with connection limits) - check
+for a quota/rate-limit before assuming repeated attempts are free.
+## Browser access
+User will provide Claude-in-Chrome access later in the competition for web challenges needing
+real browser interaction (auth flows, JS-heavy apps, etc.) - load its tools via ToolSearch when
+that's granted and the task needs it, per the chrome-browser skill.

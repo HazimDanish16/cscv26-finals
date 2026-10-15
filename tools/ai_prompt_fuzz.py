@@ -1,10 +1,18 @@
 #!/home/jimmy/ctfenv/bin/python
 """Batch jailbreak/prompt-injection fuzzer against a chat HTTP endpoint.
 Usage: ai_prompt_fuzz.py <url> [--field prompt] [--response-field text] [--extra 'custom prompt']
+                              [--limit N] [--all]
 Sends a curated list of jailbreak techniques (see challs/cheatsheets/ai_mcp_exploitation.md) as
 POST {<field>: <payload>} and checks each response (looked up by --response-field, dotted path
 into the JSON, e.g. 'choices.0.message.content' for an OpenAI-style response) for the flag regex.
-Prints every response snippet so you can judge partial progress even without a direct hit."""
+Prints every response snippet so you can judge partial progress even without a direct hit.
+
+IMPORTANT: queries against the live target usually burn a shared, slow-to-refill team quota -
+NOT free to retry. By default this stops at the FIRST hit (don't keep spending quota once it
+worked) and only sends --limit payloads per run (default 5 - the highest-likelihood ones first).
+Pass --all to disable early-stop and try every payload anyway (only when quota isn't a concern).
+Think before raising --limit; it's cheaper to review partial-refusal responses by eye and craft
+one targeted --extra follow-up than to spray the whole list."""
 import sys, os, json, requests
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import find_flags
@@ -45,6 +53,8 @@ def main():
     field = 'prompt'
     resp_field = None
     extra = []
+    limit = 5
+    stop_on_hit = True
     args = sys.argv[2:]
     i = 0
     while i < len(args):
@@ -54,10 +64,18 @@ def main():
             resp_field = args[i + 1]; i += 2
         elif args[i] == '--extra':
             extra.append(args[i + 1]); i += 2
+        elif args[i] == '--limit':
+            limit = int(args[i + 1]); i += 2
+        elif args[i] == '--all':
+            stop_on_hit = False; limit = None; i += 1
         else:
             i += 1
 
     payloads = PAYLOADS + extra
+    if limit:
+        payloads = payloads[:limit]
+    print(f'(sending {len(payloads)} payload(s); {"stopping at first hit" if stop_on_hit else "running all, no early stop"} - '
+          f'these queries usually cost shared/rate-limited quota)')
     hits = []
     for i, p in enumerate(payloads):
         try:
@@ -73,7 +91,10 @@ def main():
         print(f'[{i}] {p[:60]!r} -> {str(text)[:150]!r} {tag}')
         if fl:
             hits.append((p, fl))
-    print(f'\n{len(hits)} hit(s) out of {len(payloads)} payloads tried.')
+            if stop_on_hit:
+                print('(stopping early - got a hit; pass --all to keep going anyway)')
+                break
+    print(f'\n{len(hits)} hit(s) out of {i + 1} payload(s) tried (of {len(payloads)} queued).')
     if not hits:
         print('no direct hit - look at partial responses above for refusals that still leak a hint '
               '(character count, first letter, structure), and iterate with --extra on the most promising one')
