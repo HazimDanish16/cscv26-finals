@@ -103,3 +103,12 @@ for a quota/rate-limit before assuming repeated attempts are free.
 User will provide Claude-in-Chrome access later in the competition for web challenges needing
 real browser interaction (auth flows, JS-heavy apps, etc.) - load its tools via ToolSearch when
 that's granted and the task needs it, per the chrome-browser skill.
+## Tools are instruments, not autosolvers
+Every sweep/attack script in tools/ is a fast first pass to catch cheap/obvious wins, not the
+whole solve. Default workflow per challenge: read the actual challenge (description, source,
+real response/request shapes, hints) -> run the relevant generic sweep -> read what it found (or
+didn't) -> adapt (custom payloads/params/targeted script) based on what's actually in front of
+you. Never treat a generic script's default output as the final answer, and never run one blind
+without first looking at the challenge it's aimed at (e.g. ai_prompt_fuzz.py needs the real
+request/response shape set via --field/--response-field, not just default args; rsa.py/
+crack_archive.sh need the challenge's actual n/e/c or file).
