@@ -30,6 +30,8 @@ run('strings', ['strings', '-n', '5', f])
 run('strings16', ['strings', '-n', '5', '-el', f])
 run('binwalk', ['binwalk', '-e', '-M', '-C', out + '/binwalk', f])
 run('foremost', ['foremost', '-q', '-T', '-i', f, '-o', out + '/foremost_' + str(os.getpid())])
+if any(k in lo for k in ('png', 'bitmap', 'jpeg', 'gif')):
+    run('zbarimg', ['zbarimg', '--raw', f])  # QR codes / barcodes hidden in the image
 if 'png' in lo or 'bitmap' in lo:
     run('zsteg', ['zsteg', '-a', f], 300)
 if any(k in lo for k in ('jpeg', 'bitmap', 'wave', 'au ')):
