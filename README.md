@@ -5,14 +5,22 @@ automatically when opened in this repo - that's the shared playbook (tools, flag
 rules, brute-force policy, writeup workflow). This README is for the humans setting it up.
 
 ## First time on a new machine
+Assumes a WSL **Ubuntu 24.04** distro (`wsl --install -d Ubuntu` if you don't have one yet).
 1. Clone this repo.
-2. Inside WSL (Ubuntu distro), from the repo root: `bash tools/setup_wsl.sh`
-   - Installs everything that doesn't need sudo (python venv + libs, Ghidra, pwndbg source,
-     jwt_tool, CUPP, libc-database, wordlists).
-   - Prints two commands you need to run yourself (pwndbg's own setup.sh, and an apt install) -
-     both need your sudo password interactively.
-3. Make sure Docker Desktop is running with WSL integration enabled for your distro.
-4. That's it - CLAUDE.md in this repo tells your agent what everything does.
+2. Install Docker Desktop for Windows if you don't have it, and enable WSL integration for your
+   Ubuntu distro (Docker Desktop > Settings > Resources > WSL Integration). Can't be scripted
+   from inside WSL - do this first, manually.
+3. Inside WSL (Ubuntu distro), from the repo root, run the **sudo apt command** that
+   `tools/setup_wsl.sh` prints (do this before step 4 - some no-sudo steps depend on
+   `python3-venv` being installed).
+4. Then run `bash tools/setup_wsl.sh` itself - installs everything that doesn't need sudo
+   (python venv + libs, Ghidra, pwndbg source, jwt_tool, CUPP, libc-database, wordlists), and
+   checks Docker is reachable. Safe to re-run if anything was skipped.
+5. Finally run `cd ~/pwndbg && ./setup.sh` (its own interactive sudo prompt).
+6. That's it - CLAUDE.md in this repo tells your agent what everything does.
+
+If your WSL distro isn't Ubuntu 24.04, some apt package names (radare2, tesseract-ocr) may not
+resolve the same way - the script will tell you which ones failed.
 
 ## During the competition
 - Claim a challenge by adding/editing its row in `challs/INDEX.md` before starting, so you two
