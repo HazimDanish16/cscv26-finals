@@ -112,6 +112,19 @@ you. Never treat a generic script's default output as the final answer, and neve
 without first looking at the challenge it's aimed at (e.g. ai_prompt_fuzz.py needs the real
 request/response shape set via --field/--response-field, not just default args; rsa.py/
 crack_archive.sh need the challenge's actual n/e/c or file).
+## UNVERIFIED - do not trust without live debugging first
+- tools/boneh_durfee.py: NOT WORKING as committed. The underlying math was confirmed correct
+  (k*(N+1+y)+1 == e*d verified exactly on real numbers, X/Y search bounds confirmed to cover the
+  true root with margin), but end-to-end recovery failed on two test cases (d~N^0.28 and an
+  easier d~N^0.23 that should have been well within reach). Bug is in the lattice row
+  reconstruction or resultant-based root extraction, not isolated before time ran out pre-finals.
+  A well-tested public reference exists (github.com/jvdsn/crypto-attacks, attacks/rsa/boneh_durfee.py)
+  but requires SageMath, which isn't installed (too heavy to add under time pressure). If a
+  challenge actually needs this: either debug this script properly with time to spare, or install
+  sage (`sudo apt install sagemath` - large, budget real time for it) and use the jvdsn reference
+  instead of this file. Coppersmith (known high bits) and ECDSA HNP (partial nonce leak) were
+  never attempted for the same reason - stopped after boneh_durfee.py's bug ate the remaining
+  prep-time budget, same risk profile applies to those (harder, not easier, than this one).
 ## More crypto tools (from Typhon qualifier debrief - multi-layer chained crypto is their house style)
 - tools/length_extension.py <orig_mac_hex> <known_msg> <secret_len> <data_to_append>  SHA-256 length-extension forge. Pure Python (hashpumpy's C extension is broken on py3.12 - confirmed, do not use it). Compression function self-tested against hashlib before every run; full attack verified against ground truth (forged MAC matched a real recomputed sha256(secret+new_msg)).
 - tools/hastad_broadcast.py e= n1= c1= n2= c2= [n3= c3= ...]  Hastad broadcast (small e, same plaintext, >=e different moduli) via CRT + integer e-th root. Verified: recovered an exact test flag.
