@@ -22,7 +22,7 @@ echo "== python venv + pip packages (no sudo) =="
 python3 -m venv ~/ctfenv 2>/dev/null || echo "  !! python3-venv missing - run the sudo apt command below first, then re-run this script"
 ~/ctfenv/bin/pip install -q --upgrade pip
 ~/ctfenv/bin/pip install -q pwntools pycryptodome z3-solver gmpy2 capstone ropper ROPGadget \
-  requests beautifulsoup4 pyjwt flask-unsign angr pillow base58 ctf-dl volatility3 unicorn gdown checksec.py
+  requests beautifulsoup4 pyjwt flask-unsign angr pillow base58 ctf-dl volatility3 unicorn gdown checksec.py sstv
 
 echo "== repo clones (no sudo) =="
 cd ~
@@ -59,7 +59,8 @@ cat <<'APT'
      python3 python3-venv python3-pip \
      radare2 nmap jq john sqlmap gobuster ffuf socat ltrace tesseract-ocr zbar-tools poppler-utils \
      nodejs default-jre golang gdb-multiarch ruby-full \
-     qemu-user qemu-user-static patchelf libfplll-dev libgmp-dev apktool default-jdk-headless
+     qemu-user qemu-user-static patchelf libfplll-dev libgmp-dev apktool default-jdk-headless \
+     multimon-ng minimodem direwolf libsox-fmt-all
    sudo gem install zsteg one_gadget
 APT
 echo "   (tested resolvable against a clean Ubuntu 24.04 image; if your WSL is a different"

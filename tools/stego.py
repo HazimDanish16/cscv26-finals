@@ -71,6 +71,6 @@ except Exception:
     pass
 
 if 'wave' in lo or 'audio' in lo or f.endswith(('.wav', '.mp3', '.flac')):
-    run('spectrogram', ['sox', f, '-n', 'spectrogram', '-o', out + '/spec.png'])
-    print('[audio] check spec.png visually; also try DTMF/morse/SSTV')
+    print('[audio] delegating to tools/audio_sweep.py for full data-mode coverage (DTMF/SSTV/FSK/LSB)')
+    subprocess.run([sys.executable, os.path.join(os.path.dirname(__file__), 'audio_sweep.py'), f])
 print('outputs in', out)

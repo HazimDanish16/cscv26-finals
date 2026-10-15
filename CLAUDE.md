@@ -5,7 +5,8 @@
 - Flag format: CSCV{...} (verify against the rules/first solved chall).
 - Dump CTFd: `tools/dump.sh <url> <token or user:pass>` (ctf-dl in venv).
 ## Tools (run in WSL with ~/ctfenv/bin/python; all grep for flag regex in tools/common.py)
-- tools/stego.py <file>   forensics/stego sweep (exif, binwalk, foremost, zsteg, steghide, trailing data, LSB planes, audio spectrogram)
+- tools/stego.py <file>   forensics/stego sweep (exif, binwalk, foremost, zsteg, steghide, trailing data, LSB planes); delegates audio files to tools/audio_sweep.py
+- tools/audio_sweep.py <file>  audio forensics/data-mode sweep: wide spectrogram (visual msgs/SSTV look), multimon-ng (DTMF, pagers POCSAG/FLEX, packet radio AFSK1200/APRS, morse-as-tone, ZVEI), minimodem at 300/1200/2400/4800 baud (old acoustic-modem FSK), sstv python pkg decode (Martin/Scottie/Robot/PD modes), raw-PCM-sample LSB stego. Tested working end-to-end: DTMF, audio-LSB, SSTV all confirmed decoding correctly on synthetic signals.
 - tools/decode.py <str|@file>  recursive decoder (b64/32/85/hex/url/rot/xor/atbash/morse/binary/zlib...)
 - tools/rsa.py n= e= c= [p= q= dp= n2= e2= c2=]  RSA attacks (small e, Fermat, Wiener, common modulus, shared prime, factordb)
 - tools/triage.sh <path>  quick file triage;  tools/dock.sh <dir>  build+run challenge Dockerfile/compose locally
