@@ -23,7 +23,8 @@ python3 -m venv ~/ctfenv 2>/dev/null || echo "  !! python3-venv missing - run th
 ~/ctfenv/bin/pip install -q --upgrade pip
 ~/ctfenv/bin/pip install -q pwntools pycryptodome z3-solver gmpy2 capstone ropper ROPGadget \
   requests beautifulsoup4 pyjwt flask-unsign angr pillow base58 ctf-dl volatility3 unicorn gdown \
-  checksec.py sstv hashid msoffcrypto-tool pikepdf
+  checksec.py sstv hashid msoffcrypto-tool pikepdf web3 slither-analyzer solc-select
+~/ctfenv/bin/solc-select install 0.8.19 >/dev/null 2>&1 || true
 
 echo "== repo clones (no sudo) =="
 cd ~
@@ -43,6 +44,14 @@ if ! ls /usr/share/wordlists/rockyou.txt >/dev/null 2>&1 && [ ! -f ~/wordlists/r
   echo "  NOTE: scripts/CLAUDE.md reference /usr/share/wordlists/rockyou.txt - if yours ended up in"
   echo "  ~/wordlists/rockyou.txt instead, either: sudo mkdir -p /usr/share/wordlists && \\"
   echo "  sudo cp ~/wordlists/rockyou.txt /usr/share/wordlists/rockyou.txt, or symlink it."
+fi
+
+echo "== Foundry - forge/cast/anvil, blockchain CTF toolkit (no sudo) =="
+if ! command -v forge >/dev/null 2>&1; then
+  curl -sL https://foundry.paradigm.xyz | bash >/dev/null 2>&1
+  grep -q '.foundry/bin' ~/.bashrc || echo 'export PATH=$PATH:$HOME/.foundry/bin' >> ~/.bashrc
+  export PATH="$PATH:$HOME/.foundry/bin"
+  foundryup
 fi
 
 echo "== Ghidra (no sudo, needs java 17+) =="
