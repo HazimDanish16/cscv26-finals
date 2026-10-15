@@ -22,7 +22,8 @@ echo "== python venv + pip packages (no sudo) =="
 python3 -m venv ~/ctfenv 2>/dev/null || echo "  !! python3-venv missing - run the sudo apt command below first, then re-run this script"
 ~/ctfenv/bin/pip install -q --upgrade pip
 ~/ctfenv/bin/pip install -q pwntools pycryptodome z3-solver gmpy2 capstone ropper ROPGadget \
-  requests beautifulsoup4 pyjwt flask-unsign angr pillow base58 ctf-dl volatility3 unicorn gdown checksec.py sstv
+  requests beautifulsoup4 pyjwt flask-unsign angr pillow base58 ctf-dl volatility3 unicorn gdown \
+  checksec.py sstv hashid msoffcrypto-tool pikepdf
 
 echo "== repo clones (no sudo) =="
 cd ~
@@ -50,6 +51,18 @@ if [ ! -d ~/ghidra ]; then
   unzip -q /tmp/ghidra.zip -d ~ && mv ~/ghidra_* ~/ghidra && rm /tmp/ghidra.zip
 fi
 
+echo "== jadx - Android/Java decompiler (no sudo, needs java 11+) =="
+[ -d ~/jadx ] || (wget -q https://github.com/skylot/jadx/releases/download/v1.5.1/jadx-1.5.1.zip -O /tmp/jadx.zip && unzip -q /tmp/jadx.zip -d ~/jadx && rm /tmp/jadx.zip)
+
+echo "== pdfcrack - build from source (no sudo, needs gcc+make) =="
+mkdir -p ~/.local/bin
+if [ ! -x ~/.local/bin/pdfcrack ]; then
+  [ -d ~/pdfcrack-src ] || (wget -q https://sourceforge.net/projects/pdfcrack/files/latest/download -O /tmp/pc.tar.gz && mkdir ~/pdfcrack-src && tar xzf /tmp/pc.tar.gz -C ~/pdfcrack-src --strip-components=1 && rm /tmp/pc.tar.gz)
+  (cd ~/pdfcrack-src && make) >/dev/null 2>&1
+  ln -sf ~/pdfcrack-src/pdfcrack ~/.local/bin/pdfcrack
+fi
+grep -q '.local/bin' ~/.bashrc || echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+
 echo
 echo "== packages needing sudo - run this FIRST (interactively, needs your password) =="
 cat <<'APT'
@@ -60,7 +73,8 @@ cat <<'APT'
      radare2 nmap jq john sqlmap gobuster ffuf socat ltrace tesseract-ocr zbar-tools poppler-utils \
      nodejs default-jre golang gdb-multiarch ruby-full \
      qemu-user qemu-user-static patchelf libfplll-dev libgmp-dev apktool default-jdk-headless \
-     multimon-ng minimodem direwolf libsox-fmt-all tcpflow tcpxtract
+     multimon-ng minimodem direwolf libsox-fmt-all tcpflow tcpxtract \
+     fcrackzip
    sudo gem install zsteg one_gadget
 APT
 echo "   (tested resolvable against a clean Ubuntu 24.04 image; if your WSL is a different"
