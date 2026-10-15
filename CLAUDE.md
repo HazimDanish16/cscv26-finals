@@ -63,6 +63,23 @@ Judge by realistic wall-clock cost, not category - competition ends 5pm, so budg
 - tools/fetch.sh <drive-or-direct-url> <dest-dir>  downloads via gdown (handles Drive's large-file scan-bypass + folder links) or wget for direct URLs, then prints every downloaded file's size and FLAGS anything over 50MB (GitHub warns) / 100MB (GitHub hard-blocks).
 - If gdown errors "Cannot retrieve the public link" - the Drive file/folder sharing is probably not set to "Anyone with the link"; tell the user to check sharing on the form/drive link.
 - Large-file policy before `git add`: under 50MB, commit normally. 50-100MB, ask the user first (git-lfs vs excluding it). Over 100MB, do NOT git add it - keep it local only, note the original Drive link + a local path in the challenge's notes.md/writeup.md instead, and tell the user.
+## Chained/multi-layer challenges
+A challenge's category label is a starting point, not a boundary - don't stop investigating once
+one layer's bug is found if it only grants a foothold rather than the flag. Common pattern: a bug
+in one category grants a *primitive* (arbitrary URL fetch, file read, shell exec, admin session)
+that then needs a totally different category's technique to cash in. Example explicitly flagged
+by the user: an overprivileged/excessive-agency MCP tool (see ai_mcp_exploitation.md) granting SSRF
+or file-read, which then needs web exploitation (web_recon.md, renderer_lfi.md) to actually reach
+the flag.
+- After finding any bug, ask: "is this the flag, or just a primitive?" A primitive with no flag
+  content is a foothold - map out exactly what it lets you do (fetch arbitrary URLs? read arbitrary
+  paths? run arbitrary commands? act as a different user?) and then cross-reference every relevant
+  cheatsheet for what that specific primitive is good for (SSRF -> cloud metadata/internal
+  services; file-read -> other services' configs/secrets/source; shell-exec -> pivot to find other
+  listening services or escalate privileges; stolen session -> replay against other endpoints).
+- Don't assume a challenge stays within its listed category (AI, web, forensics, etc.) - treat
+  every new foothold as a reason to re-open every other cheatsheet, not just the one matching the
+  challenge's label.
 ## Focus policy (dynamic/decay scoring - points drop as more teams solve)
 Speed-to-solve on one challenge beats breadth across many. Default is single-focus: work one
 challenge at a time with the user, full attention, no competing parallel work.
