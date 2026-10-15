@@ -60,7 +60,7 @@ cat <<'APT'
      radare2 nmap jq john sqlmap gobuster ffuf socat ltrace tesseract-ocr zbar-tools poppler-utils \
      nodejs default-jre golang gdb-multiarch ruby-full \
      qemu-user qemu-user-static patchelf libfplll-dev libgmp-dev apktool default-jdk-headless \
-     multimon-ng minimodem direwolf libsox-fmt-all
+     multimon-ng minimodem direwolf libsox-fmt-all tcpflow tcpxtract
    sudo gem install zsteg one_gadget
 APT
 echo "   (tested resolvable against a clean Ubuntu 24.04 image; if your WSL is a different"

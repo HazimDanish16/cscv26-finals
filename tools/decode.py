@@ -89,4 +89,5 @@ def main():
         print('no flag via simple chains; try Vigenere / xor key / other schemes')
 
 
-main()
+if __name__ == '__main__':
+    main()
