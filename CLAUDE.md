@@ -40,3 +40,7 @@ Judge by realistic wall-clock cost, not category - competition ends 5pm, so budg
 2. Save the final working solve script/commands as challs/<name>/solve.py or solve.sh (not just described in prose) so it's independently re-runnable.
 3. Only after the writeup + solve script are written and saved to disk is it safe to /clear context for that challenge.
 4. Keep a running challs/INDEX.md: one line per challenge - name, category, points, status, flag (once verified).
+## Downloading challenge files (often Google Drive links)
+- tools/fetch.sh <drive-or-direct-url> <dest-dir>  downloads via gdown (handles Drive's large-file scan-bypass + folder links) or wget for direct URLs, then prints every downloaded file's size and FLAGS anything over 50MB (GitHub warns) / 100MB (GitHub hard-blocks).
+- If gdown errors "Cannot retrieve the public link" - the Drive file/folder sharing is probably not set to "Anyone with the link"; tell the user to check sharing on the form/drive link.
+- Large-file policy before `git add`: under 50MB, commit normally. 50-100MB, ask the user first (git-lfs vs excluding it). Over 100MB, do NOT git add it - keep it local only, note the original Drive link + a local path in the challenge's notes.md/writeup.md instead, and tell the user.
