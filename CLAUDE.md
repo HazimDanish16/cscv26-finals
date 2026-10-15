@@ -50,3 +50,13 @@ Judge by realistic wall-clock cost, not category - competition ends 5pm, so budg
 - tools/fetch.sh <drive-or-direct-url> <dest-dir>  downloads via gdown (handles Drive's large-file scan-bypass + folder links) or wget for direct URLs, then prints every downloaded file's size and FLAGS anything over 50MB (GitHub warns) / 100MB (GitHub hard-blocks).
 - If gdown errors "Cannot retrieve the public link" - the Drive file/folder sharing is probably not set to "Anyone with the link"; tell the user to check sharing on the form/drive link.
 - Large-file policy before `git add`: under 50MB, commit normally. 50-100MB, ask the user first (git-lfs vs excluding it). Over 100MB, do NOT git add it - keep it local only, note the original Drive link + a local path in the challenge's notes.md/writeup.md instead, and tell the user.
+## Focus policy (dynamic/decay scoring - points drop as more teams solve)
+Speed-to-solve on one challenge beats breadth across many. Default is single-focus: work one
+challenge at a time with the user, full attention, no competing parallel work.
+- Pick the challenge with the fastest expected path to a solve, not by category preference.
+- Forking (Agent tool, subagent_type: fork) is only for pure background grunt work that doesn't
+  need the user's attention: automated sweeps (stego/audio/pcap), building a challenge's Docker
+  container, initial recon/fingerprinting - queue these so groundwork is ready for the next
+  challenge, never to run a second challenge's critical path in parallel with the current one.
+- Check if CTFd awards a first-blood bonus on top of decay - if so, speed matters even more.
+- Claim a challenge in challs/INDEX.md before starting so the user's teammate doesn't duplicate it.
