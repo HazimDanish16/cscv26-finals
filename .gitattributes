@@ -1,0 +1,4 @@
+# Force LF for anything that runs in WSL - CRLF breaks shebangs/bash here (hit this bug once already)
+*.sh text eol=lf
+*.py text eol=lf
+*.java text eol=lf

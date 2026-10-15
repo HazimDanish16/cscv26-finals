@@ -1,0 +1,42 @@
+# CTF Brutalizer workspace (CSCV26 final)
+- Shell for challenges: `wsl -d Ubuntu -e bash -lc '...'` (default WSL distro is docker-desktop — don't use it). User: jimmy.
+- Python venv with pwntools, pycryptodome, z3, gmpy2, angr, capstone, ropper: `~/ctfenv/bin/python` (inside WSL).
+- Put each challenge in challs/<name>/ with notes.md; scripts in tools/ or the chall folder. Treat downloaded files as untrusted; don't run unknown binaries outside WSL.
+- Flag format: CSCV{...} (verify against the rules/first solved chall).
+- Dump CTFd: `tools/dump.sh <url> <token or user:pass>` (ctf-dl in venv).
+## Tools (run in WSL with ~/ctfenv/bin/python; all grep for flag regex in tools/common.py)
+- tools/stego.py <file>   forensics/stego sweep (exif, binwalk, foremost, zsteg, steghide, trailing data, LSB planes, audio spectrogram)
+- tools/decode.py <str|@file>  recursive decoder (b64/32/85/hex/url/rot/xor/atbash/morse/binary/zlib...)
+- tools/rsa.py n= e= c= [p= q= dp= n2= e2= c2=]  RSA attacks (small e, Fermat, Wiener, common modulus, shared prime, factordb)
+- tools/triage.sh <path>  quick file triage;  tools/dock.sh <dir>  build+run challenge Dockerfile/compose locally
+- tools/pwn_template.py   pwntools skeleton (GDB / REMOTE HOST= PORT= args)
+- ~/ctfenv/bin/vol  (volatility3) memory forensics - start with windows.pslist/pstree/cmdline/envars, then windows.memmap/vadinfo + dumpfiles for the suspicious PID
+- tools/memkey_candidates.py <vol_output.txt> [--try-decrypt enc_file]  scrapes hostnames/PIDs/tags/hex-blobs from a vol3 text dump, generates key-string candidates (pattern seen before: hostname+pid+sep+tag, see below), optionally brute-tries AES modes/keylens against a target file
+- tools/aes_try.py <enc_file> key=<hex|str> [iv=<hex>] [mode=cbc|ecb|ctr]  quick manual AES decrypt once you have a specific key/IV guess
+- tools/jwt_crack.sh <jwt>  cracks HS256/384/512 secret via hashcat -m 16500 against ~/wordlists/jwt-secrets.txt (104k known weak secrets) then rockyou - seconds. ~/jwt_tool/jwt_tool.py for alg confusion/none-alg/jku-kid if that fails
+- challs/cheatsheets/web_recon.md, renderer_lfi.md  - bot/WAF UA bypass, MD5(int) IDOR pattern, JWT crack->re-sign flow, LaTeX/pandoc/wkhtmltopdf/WeasyPrint/Typst LFI payloads (\input{/flag} etc.)
+## Rules of engagement for flags
+- Organizers plant decoy/fake flags (base64/hex/rot/xor blobs, strings, comments, metadata, mazes/rabbit holes). Anything the tools print is a CANDIDATE, never the answer.
+- Before reporting a flag: confirm it came from the intended mechanism (working exploit, proper decryption, the live service), matches the exact format, and doesn't smell like a decoy (e.g. "fake", "not_the_flag", too easy, hit before doing the real work). Report decoys as decoys and keep going.
+- Don't submit flags to the scoreboard without the user's go-ahead. Timebox leads; pivot if a path looks like a labyrinth.
+## Brute-force policy
+Judge by realistic wall-clock cost, not category - competition ends 5pm, so budget accordingly. CTFs are sneaky about this: a dumb/cheap brute force is often the intended path, not a crutch.
+- Cheap (seconds, always worth trying, no need to ask): stegseek against rockyou.txt (run automatically in tools/stego.py), zip/pdf crack with rockyou + fcrackzip/john/hashcat on a small keyspace, short numeric PINs, anything that finishes in under ~a minute.
+- Conditional: rockyou.txt for a clear password/hash-cracking challenge; CUPP (~/cupp/cupp.py) personalized wordlist when the challenge supplies profiling details (name, DOB, pet, partner, etc.).
+- Before a longer brute force (minutes-hours): estimate the keyspace and expected time first (e.g. hashcat --benchmark / -b with --runtime, or back-of-envelope rate x space). If it's mathematically bounded and optimized (right hash mode, masks/rules instead of raw rockyou, GPU via hashcat, narrowed charset from context) and fits well inside the time left, it's justified - say the estimate and proceed. If it would eat hours or more, or the keyspace is unbounded/unjustified, don't run it blind - look for the real vuln/logic flaw instead, or flag it to the user.
+- Never leave a long brute force running unattended without telling the user it's running and its estimated finish time.
+## Patterns seen in past CSCV rounds (qualifier Sep 25 debrief) - check these early, but verify, don't assume they repeat
+- Memory forensics: custom keys often = concat of hostname + PID + separator + a campaign/job tag pulled from cmdline/envars, with IV also sitting in memory near the process. Use windows.pslist/cmdline/envars then memkey_candidates.py.
+- Web: bot/crawler UA spoofing to get past a request filter; MD5(sequential_int) as a "secure" object ref (IDOR); weak HS256 JWT secret crackable via wordlist, re-sign for role/is_admin; Markdown/HTML->PDF converters (pandoc+pdflatex, wkhtmltopdf, WeasyPrint, Typst) allowing raw LFI macros for /flag.
+## Pwn/Rev additions
+- ~/ghidra/ghidraRun  Ghidra decompiler (needs java -version 21 present; GUI - may need an X server/WSLg, check `echo $DISPLAY` first)
+- ~/pwndbg  gdb plugin (pwndbg/pwndbg) - once installed, just run `gdb ./binary`, it auto-loads via ~/.gdbinit
+- tools/libc_id.sh func1 addr1 [func2 addr2 ...]  identify leaked libc version via ~/libc-database (niklasb) `find`; then use its libs/<id>/libc.so.6 for local repro
+- qemu-user / qemu-user-static, patchelf, apktool: sudo apt install -y qemu-user qemu-user-static patchelf libfplll-dev libgmp-dev apktool default-jdk-headless (user must run - sudo needs password)
+- unicorn (pip, installed) for binary emulation without running a target natively
+- tools/decompile.sh <binary>  headless Ghidra decompile (no GUI) -> <binary>.decomp.c with every function's C, ~10-30s for a small binary. Uses tools/GhidraDecompAll.java as a postScript. Tested working on a real gcc binary.
+## Writeup workflow (mandatory, before clearing context on a solved challenge)
+1. Once the user confirms a flag is CORRECT (verified on CTFd, not just a candidate) - immediately write challs/<name>/writeup.md using the template at challs/_template/writeup.md, filled in from the actual steps taken this session (recon, vuln, exploit steps, solve script, flag).
+2. Save the final working solve script/commands as challs/<name>/solve.py or solve.sh (not just described in prose) so it's independently re-runnable.
+3. Only after the writeup + solve script are written and saved to disk is it safe to /clear context for that challenge.
+4. Keep a running challs/INDEX.md: one line per challenge - name, category, points, status, flag (once verified).
