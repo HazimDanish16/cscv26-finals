@@ -112,3 +112,8 @@ you. Never treat a generic script's default output as the final answer, and neve
 without first looking at the challenge it's aimed at (e.g. ai_prompt_fuzz.py needs the real
 request/response shape set via --field/--response-field, not just default args; rsa.py/
 crack_archive.sh need the challenge's actual n/e/c or file).
+## More crypto tools (from Typhon qualifier debrief - multi-layer chained crypto is their house style)
+- tools/length_extension.py <orig_mac_hex> <known_msg> <secret_len> <data_to_append>  SHA-256 length-extension forge. Pure Python (hashpumpy's C extension is broken on py3.12 - confirmed, do not use it). Compression function self-tested against hashlib before every run; full attack verified against ground truth (forged MAC matched a real recomputed sha256(secret+new_msg)).
+- tools/hastad_broadcast.py e= n1= c1= n2= c2= [n3= c3= ...]  Hastad broadcast (small e, same plaintext, >=e different moduli) via CRT + integer e-th root. Verified: recovered an exact test flag.
+- tools/lcg_predict.py m= x0= x1= x2= [...] [predict=N]  recovers LCG a,c from >=3 consecutive outputs (known modulus), predicts future outputs. Verified: recovered exact a=1103515245 c=12345 from constructed vectors.
+- tools/discrete_log.py p= g= y= [n=]  discrete log via sympy (Pohlig-Hellman when order is smooth). Verified against a crafted smooth-order prime.
