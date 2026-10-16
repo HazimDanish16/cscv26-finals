@@ -18,3 +18,5 @@ challs/**/ctfd_token.txt
 .DS_Store
 Thumbs.db
 secrets/
+# huge pre-existing unrelated file found in rev_rev02 - not CTF-related, too large for git anyway
+challs/rev_rev02/ex2/phantom.exe.html

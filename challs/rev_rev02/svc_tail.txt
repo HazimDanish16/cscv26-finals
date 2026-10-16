@@ -1,0 +1,410 @@
+.text:0000000140044CAE                 mov     rcx, [rsp+8+arg_28]
+.text:0000000140044CB3                 mov     [rsp+8+arg_28], rax
+.text:0000000140044CB8                 lea     rax, [rsp+8+arg_28]
+.text:0000000140044CBD                 imul    rcx, r13
+.text:0000000140044CC1                 mov     rax, [rsp+8+arg_28]
+.text:0000000140044CC6                 imul    rax, rdi
+.text:0000000140044CCA                 add     rax, rcx
+.text:0000000140044CCD                 lea     rcx, (byte_140043BD5 - 140043BD5h)[rax+rdi]
+.text:0000000140044CD1                 mov     [rsp+8+arg_28], rcx
+.text:0000000140044CD6                 lea     rcx, [rsp+8+arg_28]
+.text:0000000140044CDB                 mov     rcx, 0D82B14D07A143595h
+.text:0000000140044CE5                 sub     rcx, rax
+.text:0000000140044CE8                 mov     rax, [rsp+8+arg_28]
+.text:0000000140044CED                 mov     [rsp+8+arg_28], rcx
+.text:0000000140044CF2                 lea     rcx, [rsp+8+arg_28]
+.text:0000000140044CF7                 imul    rax, rsi
+.text:0000000140044CFB                 mov     rcx, [rsp+8+arg_28]
+.text:0000000140044D00                 imul    rcx, r14
+.text:0000000140044D04                 add     rax, r14
+.text:0000000140044D07                 add     rax, rcx
+.text:0000000140044D0A                 mov     [rsp+8+arg_A8], rax
+.text:0000000140044D12                 xor     eax, eax
+.text:0000000140044D14                 jz      short near ptr loc_140044D16+1
+.text:0000000140044D16
+.text:0000000140044D16 loc_140044D16:                          ; CODE XREF: sub_140031E70+12EA4↑j
+.text:0000000140044D16                 call    near ptr 16490D863h
+.text:0000000140044D1B                 rol     ds:(byte_140043BD5 - 140043BD5h)[rax], 0
+.text:0000000140044D1E                 add     [rax-77h], cl
+.text:0000000140044D21                 leave
+.text:0000000140044D22                 mov     rax, [rsp-6E8h+arg_798]
+.text:0000000140044D2A                 mov     rax, rax
+.text:0000000140044D2D                 mov     rdx, rax
+.text:0000000140044D30                 and     rdx, rcx
+.text:0000000140044D33                 mov     [rsp-6E8h+arg_718], rdx
+.text:0000000140044D38                 lea     r8, [rsp-6E8h+arg_718]
+.text:0000000140044D3D                 not     rdx
+.text:0000000140044D40                 mov     r8, [rsp-6E8h+arg_718]
+.text:0000000140044D45                 mov     [rsp-6E8h+arg_718], rdx
+.text:0000000140044D4A                 lea     rdx, [rsp-6E8h+arg_718]
+.text:0000000140044D4F                 imul    r8, r12
+.text:0000000140044D53                 mov     rdx, [rsp-6E8h+arg_718]
+.text:0000000140044D58                 imul    rdx, rbx
+.text:0000000140044D5C                 add     rdx, r8
+.text:0000000140044D5F                 mov     r8, r11
+.text:0000000140044D62                 sub     r8, rdx
+.text:0000000140044D65                 mov     [rsp-6E8h+arg_718], r8
+.text:0000000140044D6A                 lea     r8, [rsp-6E8h+arg_718]
+.text:0000000140044D6F                 add     rdx, rbx
+.text:0000000140044D72                 mov     r8, [rsp-6E8h+arg_718]
+.text:0000000140044D77                 mov     [rsp-6E8h+arg_718], rdx
+.text:0000000140044D7C                 lea     rdx, [rsp-6E8h+arg_718]
+.text:0000000140044D81                 imul    r8, r15
+.text:0000000140044D85                 mov     rdx, [rsp-6E8h+arg_718]
+.text:0000000140044D8A                 imul    rdx, rbp
+.text:0000000140044D8E                 add     rdx, r8
+.text:0000000140044D91                 lea     r8, [rdx+rbp]
+.text:0000000140044D95                 mov     [rsp-6E8h+arg_718], r8
+.text:0000000140044D9A                 lea     r8, [rsp-6E8h+arg_718]
+.text:0000000140044D9F                 mov     r8, r10
+.text:0000000140044DA2                 sub     r8, rdx
+.text:0000000140044DA5                 mov     rdx, [rsp-6E8h+arg_718]
+.text:0000000140044DAA                 mov     [rsp-6E8h+arg_718], r8
+.text:0000000140044DAF                 lea     r8, [rsp-6E8h+arg_718]
+.text:0000000140044DB4                 imul    rdx, r13
+.text:0000000140044DB8                 mov     r8, [rsp-6E8h+arg_718]
+.text:0000000140044DBD                 imul    r8, rdi
+.text:0000000140044DC1                 add     rdx, rdi
+.text:0000000140044DC4                 add     rdx, r8
+.text:0000000140044DC7                 mov     [rsp-6E8h+arg_790], rdx
+.text:0000000140044DCF                 or      rax, rcx
+.text:0000000140044DD2                 mov     [rsp-6E8h+arg_718], rax
+.text:0000000140044DD7                 lea     rcx, [rsp-6E8h+arg_718]
+.text:0000000140044DDC                 not     rax
+.text:0000000140044DDF                 mov     rcx, [rsp-6E8h+arg_718]
+.text:0000000140044DE4                 mov     [rsp-6E8h+arg_718], rax
+.text:0000000140044DE9                 lea     rax, [rsp-6E8h+arg_718]
+.text:0000000140044DEE                 imul    rcx, rsi
+.text:0000000140044DF2                 mov     rax, [rsp-6E8h+arg_718]
+.text:0000000140044DF7                 imul    rax, r14
+.text:0000000140044DFB                 add     rax, rcx
+.text:0000000140044DFE                 mov     rcx, 3D4D51CA61C88647h
+.text:0000000140044E08                 sub     rcx, rax
+.text:0000000140044E0B                 mov     [rsp-6E8h+arg_718], rcx
+.text:0000000140044E10                 lea     rcx, [rsp-6E8h+arg_718]
+.text:0000000140044E15                 add     rax, r14
+.text:0000000140044E18                 mov     rcx, [rsp-6E8h+arg_718]
+.text:0000000140044E1D                 mov     [rsp-6E8h+arg_718], rax
+.text:0000000140044E22                 lea     rax, [rsp-6E8h+arg_718]
+.text:0000000140044E27                 imul    rcx, r12
+.text:0000000140044E2B                 mov     rax, [rsp-6E8h+arg_718]
+.text:0000000140044E30                 imul    rax, rbx
+.text:0000000140044E34                 add     rax, rcx
+.text:0000000140044E37                 lea     rcx, (byte_140043BD5 - 140043BD5h)[rax+rbx]
+.text:0000000140044E3B                 mov     [rsp-6E8h+arg_718], rcx
+.text:0000000140044E40                 lea     rcx, [rsp-6E8h+arg_718]
+.text:0000000140044E45                 mov     rcx, r11
+.text:0000000140044E48                 sub     rcx, rax
+.text:0000000140044E4B                 mov     rax, [rsp-6E8h+arg_718]
+.text:0000000140044E50                 mov     [rsp-6E8h+arg_718], rcx
+.text:0000000140044E55                 lea     rcx, [rsp-6E8h+arg_718]
+.text:0000000140044E5A                 imul    rax, r15
+.text:0000000140044E5E                 mov     rcx, [rsp-6E8h+arg_718]
+.text:0000000140044E63                 imul    rcx, rbp
+.text:0000000140044E67                 add     rax, rbp
+.text:0000000140044E6A                 add     rax, rcx
+.text:0000000140044E6D                 mov     [rsp-6E8h+arg_788], rax
+.text:0000000140044E75                 mov     rax, [rsp-6E8h+arg_790]
+.text:0000000140044E7D                 mov     rax, rax
+.text:0000000140044E80                 mov     rcx, [rsp-6E8h+arg_788]
+.text:0000000140044E88                 mov     rcx, rcx
+.text:0000000140044E8B                 mov     rax, rax
+.text:0000000140044E8E                 mov     rcx, rcx
+.text:0000000140044E91                 xor     rcx, rax
+.text:0000000140044E94                 mov     rcx, rcx
+.text:0000000140044E97                 mov     [rsp-6E8h+arg_718], rcx
+.text:0000000140044E9C                 lea     rax, [rsp-6E8h+arg_718]
+.text:0000000140044EA1                 not     rcx
+.text:0000000140044EA4                 mov     rax, [rsp-6E8h+arg_718]
+.text:0000000140044EA9                 mov     [rsp-6E8h+arg_718], rcx
+.text:0000000140044EAE                 lea     rcx, [rsp-6E8h+arg_718]
+.text:0000000140044EB3                 imul    rax, r12
+.text:0000000140044EB7                 mov     rcx, [rsp-6E8h+arg_718]
+.text:0000000140044EBC                 imul    rcx, rbx
+.text:0000000140044EC0                 add     rcx, rax
+.text:0000000140044EC3                 lea     rax, [rcx+rbx]
+.text:0000000140044EC7                 mov     [rsp-6E8h+arg_718], rax
+.text:0000000140044ECC                 lea     rax, [rsp-6E8h+arg_718]
+.text:0000000140044ED1                 sub     r11, rcx
+.text:0000000140044ED4                 mov     rcx, [rsp-6E8h+arg_718]
+.text:0000000140044ED9                 mov     [rsp-6E8h+arg_718], r11
+.text:0000000140044EDE                 imul    rcx, rsi
+.text:0000000140044EE2                 mov     rax, [rsp-6E8h+arg_718]
+.text:0000000140044EE7                 imul    rax, r14
+.text:0000000140044EEB                 add     rcx, r14
+.text:0000000140044EEE                 add     rcx, rax
+.text:0000000140044EF1                 mov     [rsp-6E8h+arg_780], rcx
+.text:0000000140044EF9                 jmp     short loc_140044EFD
+.text:0000000140044EF9 ; ---------------------------------------------------------------------------
+.text:0000000140044EFB                 db 0Fh, 84h
+.text:0000000140044EFD ; ---------------------------------------------------------------------------
+.text:0000000140044EFD
+.text:0000000140044EFD loc_140044EFD:                          ; CODE XREF: sub_140031E70+13089↑j
+.text:0000000140044EFD                 mov     rcx, [rsp-6E8h+arg_780]
+.text:0000000140044F05                 mov     rcx, rcx
+.text:0000000140044F08                 mov     rax, 5555555555555555h
+.text:0000000140044F12                 and     rax, rcx
+.text:0000000140044F15                 mov     [rsp-6E8h+arg_718], rax
+.text:0000000140044F1A                 mov     rdx, rax
+.text:0000000140044F1D                 lea     rax, [rsp-6E8h+arg_718]
+.text:0000000140044F22                 not     rdx
+.text:0000000140044F25                 mov     rax, [rsp-6E8h+arg_718]
+.text:0000000140044F2A                 mov     [rsp-6E8h+arg_718], rdx
+.text:0000000140044F2F                 lea     rdx, [rsp-6E8h+arg_718]
+.text:0000000140044F34                 imul    rax, r15
+.text:0000000140044F38                 mov     rdx, [rsp-6E8h+arg_718]
+.text:0000000140044F3D                 imul    rdx, rbp
+.text:0000000140044F41                 add     rdx, rax
+.text:0000000140044F44                 lea     rax, [rdx+rbp]
+.text:0000000140044F48                 mov     [rsp-6E8h+arg_718], rax
+.text:0000000140044F4D                 lea     rax, [rsp-6E8h+arg_718]
+.text:0000000140044F52                 mov     r8, r10
+.text:0000000140044F55                 sub     r8, rdx
+.text:0000000140044F58                 mov     rax, [rsp-6E8h+arg_718]
+.text:0000000140044F5D                 mov     [rsp-6E8h+arg_718], r8
+.text:0000000140044F62                 lea     rdx, [rsp-6E8h+arg_718]
+.text:0000000140044F67                 mov     rdx, 0AAAAAAAAAAAAAAAAh
+.text:0000000140044F71                 and     rcx, rdx
+.text:0000000140044F74                 mov     rdx, [rsp-6E8h+arg_718]
+.text:0000000140044F79                 mov     [rsp-6E8h+arg_718], rcx
+.text:0000000140044F7E                 lea     r8, [rsp-6E8h+arg_718]
+.text:0000000140044F83                 not     rcx
+.text:0000000140044F86                 mov     r8, [rsp-6E8h+arg_718]
+.text:0000000140044F8B                 mov     [rsp-6E8h+arg_718], rcx
+.text:0000000140044F90                 lea     rcx, [rsp-6E8h+arg_718]
+.text:0000000140044F95                 imul    r8, rsi
+.text:0000000140044F99                 mov     rcx, [rsp-6E8h+arg_718]
+.text:0000000140044F9E                 imul    rcx, r14
+.text:0000000140044FA2                 add     rcx, r8
+.text:0000000140044FA5                 lea     r8, [rcx+r14]
+.text:0000000140044FA9                 mov     [rsp-6E8h+arg_718], r8
+.text:0000000140044FAE                 lea     r8, [rsp-6E8h+arg_718]
+.text:0000000140044FB3                 mov     r8, 3D4D51CA61C88647h
+.text:0000000140044FBD                 sub     r8, rcx
+.text:0000000140044FC0                 mov     rcx, [rsp-6E8h+arg_718]
+.text:0000000140044FC5                 mov     [rsp-6E8h+arg_718], r8
+.text:0000000140044FCA                 lea     r8, [rsp-6E8h+arg_718]
+.text:0000000140044FCF                 imul    rdx, rdi
+.text:0000000140044FD3                 imul    rcx, r12
+.text:0000000140044FD7                 add     rcx, rdx
+.text:0000000140044FDA                 imul    rax, r13
+.text:0000000140044FDE                 mov     r11, 0ADC0B59B489E789Eh
+.text:0000000140044FE8                 add     rax, r11
+.text:0000000140044FEB                 add     rcx, rax
+.text:0000000140044FEE                 mov     rax, [rsp-6E8h+arg_718]
+.text:0000000140044FF3                 imul    rax, rbx
+.text:0000000140044FF7                 add     rcx, rax
+.text:0000000140044FFA                 mov     [rsp-6E8h+arg_778], rcx
+.text:0000000140045002                 mov     rax, [rsp-6E8h+arg_778]
+.text:000000014004500A                 mov     rax, rax
+.text:000000014004500D                 and     r9, rax
+.text:0000000140045010                 mov     [rsp-6E8h+arg_718], r9
+.text:0000000140045015                 lea     rcx, [rsp-6E8h+arg_718]
+.text:000000014004501A                 not     r9
+.text:000000014004501D                 mov     rcx, [rsp-6E8h+arg_718]
+.text:0000000140045022                 mov     [rsp-6E8h+arg_718], r9
+.text:0000000140045027                 lea     rdx, [rsp-6E8h+arg_718]
+.text:000000014004502C                 mov     rdx, 0CCCCCCCCCCCCCCCCh
+.text:0000000140045036                 and     rax, rdx
+.text:0000000140045039                 mov     rdx, [rsp-6E8h+arg_718]
+.text:000000014004503E                 mov     [rsp-6E8h+arg_718], rax
+.text:0000000140045043                 not     rax
+.text:0000000140045046                 mov     r8, [rsp-6E8h+arg_718]
+.text:000000014004504B                 mov     [rsp-6E8h+arg_718], rax
+.text:0000000140045050                 lea     rax, [rsp-6E8h+arg_718]
+.text:0000000140045055                 imul    rcx, r12
+.text:0000000140045059                 add     rcx, r11
+.text:000000014004505C                 imul    rdx, rbx
+.text:0000000140045060                 imul    r8, r13
+.text:0000000140045064                 add     r8, rdx
+.text:0000000140045067                 add     r8, rcx
+.text:000000014004506A                 mov     rax, [rsp-6E8h+arg_718]
+.text:000000014004506F                 imul    rax, rdi
+.text:0000000140045073                 add     r8, rax
+.text:0000000140045076                 mov     [rsp-6E8h+arg_770], r8
+.text:000000014004507E                 mov     rax, [rsp-6E8h+arg_770]
+.text:0000000140045086                 mov     rax, rax
+.text:0000000140045089                 rol     rax, 17h
+.text:000000014004508D                 mov     [rsp-6E8h+arg_718], rax
+.text:0000000140045092                 lea     rcx, [rsp-6E8h+arg_718]
+.text:0000000140045097                 imul    r15, [rsp-6E8h+arg_718]
+.text:000000014004509D                 not     rax
+.text:00000001400450A0                 mov     [rsp-6E8h+arg_718], rax
+.text:00000001400450A5                 lea     rax, [rsp-6E8h+arg_718]
+.text:00000001400450AA                 mov     rax, [rsp-6E8h+arg_718]
+.text:00000001400450AF                 imul    rax, rbp
+.text:00000001400450B3                 add     rax, r15
+.text:00000001400450B6                 add     rbp, rax
+.text:00000001400450B9                 mov     [rsp-6E8h+arg_718], rbp
+.text:00000001400450BE                 sub     r10, rax
+.text:00000001400450C1                 mov     rax, [rsp-6E8h+arg_718]
+.text:00000001400450C6                 imul    rax, rsi
+.text:00000001400450CA                 mov     [rsp-6E8h+arg_718], r10
+.text:00000001400450CF                 mov     rcx, [rsp-6E8h+arg_718]
+.text:00000001400450D4                 imul    rcx, r14
+.text:00000001400450D8                 add     rax, r14
+.text:00000001400450DB                 add     rax, rcx
+.text:00000001400450DE                 rol     rax, 29h
+.text:00000001400450E2                 mov     [rsp-6E8h+arg_768], rax
+.text:00000001400450EA                 mov     rax, [rsp-6E8h+arg_768]
+.text:00000001400450F2                 mov     rax, rax
+.text:00000001400450F5                 bswap   rax
+.text:00000001400450F8                 mov     [rsp-6E8h+arg_718], rax
+.text:00000001400450FD                 lea     rcx, [rsp-6E8h+arg_718]
+.text:0000000140045102                 mov     rcx, [rsp-6E8h+arg_718]
+.text:0000000140045107                 imul    rcx, r12
+.text:000000014004510B                 not     rax
+.text:000000014004510E                 mov     [rsp-6E8h+arg_718], rax
+.text:0000000140045113                 lea     rax, [rsp-6E8h+arg_718]
+.text:0000000140045118                 mov     rax, [rsp-6E8h+arg_718]
+.text:000000014004511D                 imul    rax, rbx
+.text:0000000140045121                 add     rcx, rbx
+.text:0000000140045124                 add     rcx, rax
+.text:0000000140045127                 bswap   rcx
+.text:000000014004512A                 mov     [rsp-6E8h+arg_D68], rcx
+.text:0000000140045132                 call    $+5
+.text:0000000140045137                 pop     rax
+.text:0000000140045138                 mov     rax, [rsp-6E8h+arg_D68]
+.text:0000000140045140                 mov     rax, rax
+.text:0000000140045143                 mov     [rsp-6E8h+arg_718], rax
+.text:0000000140045148                 lea     rcx, [rsp-6E8h+arg_718]
+.text:000000014004514D                 imul    r13, [rsp-6E8h+arg_718]
+.text:0000000140045153                 not     rax
+.text:0000000140045156                 mov     [rsp-6E8h+arg_718], rax
+.text:000000014004515B                 lea     rax, [rsp-6E8h+arg_718]
+.text:0000000140045160                 mov     rax, [rsp-6E8h+arg_718]
+.text:0000000140045165                 imul    rax, rdi
+.text:0000000140045169                 add     rax, r13
+.text:000000014004516C                 mov     r13, [rsp-6E8h+arg_CB0]
+.text:0000000140045174                 add     rdi, rax
+.text:0000000140045177                 mov     [rsp-6E8h+arg_718], rdi
+.text:000000014004517C                 mov     rcx, 0D82B14D07A143595h
+.text:0000000140045186                 sub     rcx, rax
+.text:0000000140045189                 imul    r12, [rsp-6E8h+arg_718]
+.text:000000014004518F                 mov     [rsp-6E8h+arg_718], rcx
+.text:0000000140045194                 lea     rax, [rsp-6E8h+arg_718]
+.text:0000000140045199                 mov     rax, [rsp-6E8h+arg_718]
+.text:000000014004519E                 imul    rax, rbx
+.text:00000001400451A2                 add     rax, r12
+.text:00000001400451A5                 add     rbx, rax
+.text:00000001400451A8                 mov     [rsp-6E8h+arg_718], rbx
+.text:00000001400451AD                 lea     rcx, [rsp-6E8h+arg_718]
+.text:00000001400451B2                 imul    rsi, [rsp-6E8h+arg_718]
+.text:00000001400451B8                 mov     rcx, 7A1435943D4D51CBh
+.text:00000001400451C2                 sub     rcx, rax
+.text:00000001400451C5                 mov     [rsp-6E8h+arg_718], rcx
+.text:00000001400451CA                 lea     rax, [rsp-6E8h+arg_718]
+.text:00000001400451CF                 add     rsi, r14
+.text:00000001400451D2                 imul    r14, [rsp-6E8h+arg_718]
+.text:00000001400451D8                 add     r14, rsi
+.text:00000001400451DB                 mov     [rsp-6E8h+arg_D60], r14
+.text:00000001400451E3                 jmp     short loc_1400451E6
+.text:00000001400451E3 ; ---------------------------------------------------------------------------
+.text:00000001400451E5                 db 0E8h
+.text:00000001400451E6 ; ---------------------------------------------------------------------------
+.text:00000001400451E6
+.text:00000001400451E6 loc_1400451E6:                          ; CODE XREF: sub_140031E70+13373↑j
+.text:00000001400451E6                 mov     rax, [rsp-6E8h+arg_D60]
+.text:00000001400451EE                 mov     rax, rax
+.text:00000001400451F1                 mov     rcx, [rsp-6E8h+arg_C98]
+.text:00000001400451F9                 call    rax
+.text:00000001400451FB                 mov     rsi, [rsp-6E8h+arg_D18]
+.text:0000000140045203                 mov     rcx, rsi
+.text:0000000140045206                 mov     edx, 1388h
+.text:000000014004520B                 call    [rsp-6E8h+arg_D50]
+.text:0000000140045212                 mov     rcx, rsi
+.text:0000000140045215                 call    r13
+.text:0000000140045218                 mov     rax, [rsp-6E8h+arg_C98]
+.text:0000000140045220
+.text:0000000140045220 loc_140045220:                          ; CODE XREF: sub_140031E70+1226F↑j
+.text:0000000140045220                 test    rax, rax
+.text:0000000140045223                 jz      short loc_14004522B
+.text:0000000140045225                 mov     rcx, rax
+.text:0000000140045228                 call    r13
+.text:000000014004522B
+.text:000000014004522B loc_14004522B:                          ; CODE XREF: sub_140031E70+133B3↑j
+.text:000000014004522B                 mov     rcx, [rsp-6E8h+arg_D20]
+.text:0000000140045233                 call    r13
+.text:0000000140045236                 mov     rcx, [rsp-6E8h+arg_D10]
+.text:000000014004523E                 call    r13
+.text:0000000140045241                 mov     rcx, [rsp-6E8h+arg_CA0]
+.text:0000000140045249                 call    r13
+.text:000000014004524C                 mov     rax, cs:qword_1406D2090
+.text:0000000140045253                 mov     rcx, cs:qword_1406D2070
+.text:000000014004525A                 test    rcx, rcx
+.text:000000014004525D                 jz      loc_14004531B
+.text:0000000140045263                 mov     rdx, rcx
+.text:0000000140045266                 shl     rdx, 8
+.text:000000014004526A                 sub     rdx, rcx
+.text:000000014004526D                 xor     rdx, rax
+.text:0000000140045270                 mov     rax, 0CAFEBABE133713C8h
+.text:000000014004527A                 cmp     rdx, rax
+.text:000000014004527D                 setz    al
+.text:0000000140045280                 jmp     loc_14004531D
+.text:0000000140045285 ; ---------------------------------------------------------------------------
+.text:0000000140045285                 mov     rcx, rsi
+.text:0000000140045288                 call    [rsp-6E8h+arg_CB0]
+.text:000000014004528F                 jmp     short loc_14004530E
+.text:0000000140045291 ; ---------------------------------------------------------------------------
+.text:0000000140045291                 mov     rcx, rsi
+.text:0000000140045294                 mov     rsi, [rsp-6E8h+arg_CB0]
+.text:000000014004529C                 jmp     short loc_140045302
+.text:000000014004529E ; ---------------------------------------------------------------------------
+.text:000000014004529E                 mov     r8d, 0DEADh
+.text:00000001400452A4                 mov     rdi, [rsp-6E8h+arg_D10]
+.text:00000001400452AC                 mov     rcx, rdi
+.text:00000001400452AF                 xor     edx, edx
+.text:00000001400452B1                 xor     r9d, r9d
+.text:00000001400452B4                 call    [rsp-6E8h+arg_D30]
+.text:00000001400452BB                 mov     ecx, 32h ; '2'
+.text:00000001400452C0                 call    rsi
+.text:00000001400452C2                 jmp     short loc_1400452ED
+.text:00000001400452C4 ; ---------------------------------------------------------------------------
+.text:00000001400452C4                 mov     r8d, 0DEADh
+.text:00000001400452CA                 mov     rdi, [rsp-6E8h+arg_D10]
+.text:00000001400452D2                 mov     rcx, rdi
+.text:00000001400452D5                 xor     edx, edx
+.text:00000001400452D7                 xor     r9d, r9d
+.text:00000001400452DA                 call    [rsp-6E8h+arg_D30]
+.text:00000001400452E1                 mov     ecx, 32h ; '2'
+.text:00000001400452E6                 call    [rsp-6E8h+arg_D40]
+.text:00000001400452ED
+.text:00000001400452ED loc_1400452ED:                          ; CODE XREF: sub_140031E70+13452↑j
+.text:00000001400452ED                 mov     rcx, [rsp-6E8h+arg_D20]
+.text:00000001400452F5                 mov     rsi, [rsp-6E8h+arg_CB0]
+.text:00000001400452FD                 call    rsi
+.text:00000001400452FF                 mov     rcx, rdi
+.text:0000000140045302
+.text:0000000140045302 loc_140045302:                          ; CODE XREF: sub_140031E70+1342C↑j
+.text:0000000140045302                 call    rsi
+.text:0000000140045304                 mov     rcx, [rsp-6E8h+arg_CA0]
+.text:000000014004530C                 call    rsi
+.text:000000014004530E
+.text:000000014004530E loc_14004530E:                          ; CODE XREF: sub_140031E70+1341F↑j
+.text:000000014004530E                 mov     rcx, [rsp-6E8h+arg_C98]
+.text:0000000140045316                 call    sub_140065D60
+.text:000000014004531B
+.text:000000014004531B loc_14004531B:                          ; CODE XREF: sub_140031E70+133ED↑j
+.text:000000014004531B                 xor     eax, eax
+.text:000000014004531D
+.text:000000014004531D loc_14004531D:                          ; CODE XREF: sub_140031E70+13410↑j
+.text:000000014004531D                 add     rsp, 6A8h
+.text:0000000140045324                 pop     rbx
+.text:0000000140045325                 pop     rbp
+.text:0000000140045326                 pop     rdi
+.text:0000000140045327                 pop     rsi
+.text:0000000140045328                 pop     r12
+.text:000000014004532A                 pop     r13
+.text:000000014004532C                 pop     r14
+.text:000000014004532E                 pop     r15
+.text:0000000140045330                 retn
+.text:0000000140045331 ; ---------------------------------------------------------------------------
+.text:0000000140045331
+.text:0000000140045331 loc_140045331:                          ; CODE XREF: sub_140031E70+12159↑j
+.text:0000000140045331                 lea     r8, stru_1406BAFF0 ; "src\\svc.rs"
+.text:0000000140045338                 mov     edx, 0Ah
+.text:000000014004533D                 call    sub_1400E054C
+.text:000000014004533D sub_140031E70   endp ; sp-analysis failed
+.text:000000014004533D
+.text:0000000140045342 ; ---------------------------------------------------------------------------
+.text:0000000140045342                 ud2

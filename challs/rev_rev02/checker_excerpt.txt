@@ -1,0 +1,1064 @@
+.text:0000000140001780 sub_140001780   proc near               ; CODE XREF: sub_140002FA0+91F↓p
+.text:0000000140001780                                         ; DATA XREF: .pdata:00000001406CA06C↓o
+.text:0000000140001780
+.text:0000000140001780 var_9B8         = qword ptr -9B8h
+.text:0000000140001780 var_9B0         = qword ptr -9B0h
+.text:0000000140001780 dwBytes         = dword ptr -9A8h
+.text:0000000140001780 var_998         = xmmword ptr -998h
+.text:0000000140001780 var_988         = qword ptr -988h
+.text:0000000140001780 var_980         = dword ptr -980h
+.text:0000000140001780 lpMem           = qword ptr -970h
+.text:0000000140001780 var_968         = qword ptr -968h
+.text:0000000140001780 var_960         = qword ptr -960h
+.text:0000000140001780 var_958         = qword ptr -958h
+.text:0000000140001780 var_950         = qword ptr -950h
+.text:0000000140001780 var_948         = dword ptr -948h
+.text:0000000140001780 var_940         = qword ptr -940h
+.text:0000000140001780 var_938         = qword ptr -938h
+.text:0000000140001780 var_930         = qword ptr -930h
+.text:0000000140001780 var_928         = qword ptr -928h
+.text:0000000140001780 var_920         = qword ptr -920h
+.text:0000000140001780 var_918         = qword ptr -918h
+.text:0000000140001780 var_910         = qword ptr -910h
+.text:0000000140001780 var_908         = qword ptr -908h
+.text:0000000140001780 var_900         = qword ptr -900h
+.text:0000000140001780 var_8F8         = qword ptr -8F8h
+.text:0000000140001780 var_8F0         = qword ptr -8F0h
+.text:0000000140001780 var_8E8         = qword ptr -8E8h
+.text:0000000140001780 var_8E0         = qword ptr -8E0h
+.text:0000000140001780 var_8D0         = qword ptr -8D0h
+.text:0000000140001780 var_8C0         = xmmword ptr -8C0h
+.text:0000000140001780 var_8B0         = xmmword ptr -8B0h
+.text:0000000140001780 var_8A0         = xmmword ptr -8A0h
+.text:0000000140001780 var_890         = xmmword ptr -890h
+.text:0000000140001780 var_880         = xmmword ptr -880h
+.text:0000000140001780 var_870         = xmmword ptr -870h
+.text:0000000140001780 var_860         = xmmword ptr -860h
+.text:0000000140001780 var_850         = xmmword ptr -850h
+.text:0000000140001780 var_840         = xmmword ptr -840h
+.text:0000000140001780 var_830         = xmmword ptr -830h
+.text:0000000140001780 var_820         = xmmword ptr -820h
+.text:0000000140001780 var_810         = xmmword ptr -810h
+.text:0000000140001780 var_800         = xmmword ptr -800h
+.text:0000000140001780 var_7F0         = xmmword ptr -7F0h
+.text:0000000140001780 var_7E0         = xmmword ptr -7E0h
+.text:0000000140001780 var_7D0         = xmmword ptr -7D0h
+.text:0000000140001780 var_7C0         = xmmword ptr -7C0h
+.text:0000000140001780 var_7B0         = xmmword ptr -7B0h
+.text:0000000140001780 var_7A0         = xmmword ptr -7A0h
+.text:0000000140001780 var_790         = xmmword ptr -790h
+.text:0000000140001780 var_780         = xmmword ptr -780h
+.text:0000000140001780 var_770         = xmmword ptr -770h
+.text:0000000140001780 var_760         = xmmword ptr -760h
+.text:0000000140001780 var_750         = xmmword ptr -750h
+.text:0000000140001780 var_740         = xmmword ptr -740h
+.text:0000000140001780 var_730         = xmmword ptr -730h
+.text:0000000140001780 var_720         = xmmword ptr -720h
+.text:0000000140001780 var_710         = xmmword ptr -710h
+.text:0000000140001780 var_700         = xmmword ptr -700h
+.text:0000000140001780 var_6F0         = xmmword ptr -6F0h
+.text:0000000140001780 Src             = dword ptr -6E0h
+.text:0000000140001780 var_6D0         = qword ptr -6D0h
+.text:0000000140001780 var_6C8         = xmmword ptr -6C8h
+.text:0000000140001780 var_6B8         = qword ptr -6B8h
+.text:0000000140001780 var_6B0         = xmmword ptr -6B0h
+.text:0000000140001780 var_6A0         = xmmword ptr -6A0h
+.text:0000000140001780 var_690         = xmmword ptr -690h
+.text:0000000140001780 var_680         = xmmword ptr -680h
+.text:0000000140001780 var_670         = xmmword ptr -670h
+.text:0000000140001780 var_660         = xmmword ptr -660h
+.text:0000000140001780 var_650         = xmmword ptr -650h
+.text:0000000140001780 var_640         = xmmword ptr -640h
+.text:0000000140001780 var_630         = xmmword ptr -630h
+.text:0000000140001780 var_620         = qword ptr -620h
+.text:0000000140001780 var_618         = qword ptr -618h
+.text:0000000140001780 var_2E0         = xmmword ptr -2E0h
+.text:0000000140001780 var_2A8         = dword ptr -2A8h
+.text:0000000140001780 var_290         = xmmword ptr -290h
+.text:0000000140001780 var_280         = xmmword ptr -280h
+.text:0000000140001780 var_270         = xmmword ptr -270h
+.text:0000000140001780 var_88          = byte ptr -88h
+.text:0000000140001780 var_68          = xmmword ptr -68h
+.text:0000000140001780 var_58          = xmmword ptr -58h
+.text:0000000140001780
+.text:0000000140001780                 push    r15
+.text:0000000140001782                 push    r14
+.text:0000000140001784                 push    r13
+.text:0000000140001786                 push    r12
+.text:0000000140001788                 push    rsi
+.text:0000000140001789                 push    rdi
+.text:000000014000178A                 push    rbp
+.text:000000014000178B                 push    rbx
+.text:000000014000178C                 sub     rsp, 998h
+.text:0000000140001793                 movaps  [rsp+9D8h+var_58], xmm7
+.text:000000014000179B                 movaps  [rsp+9D8h+var_68], xmm6
+.text:00000001400017A3                 mov     qword ptr [rsp+9D8h+var_948], rcx
+.text:00000001400017AB                 jmp     short loc_1400017AF
+.text:00000001400017AB ; ---------------------------------------------------------------------------
+.text:00000001400017AD                 db 0Fh, 84h
+.text:00000001400017AF ; ---------------------------------------------------------------------------
+.text:00000001400017AF
+.text:00000001400017AF loc_1400017AF:                          ; CODE XREF: sub_140001780+2B↑j
+.text:00000001400017AF                 movups  xmm6, xmmword ptr cs:ymmword_1406BB410+10h
+.text:00000001400017B6                 movaps  [rsp+9D8h+var_6C8], xmm6
+.text:00000001400017BE                 movups  xmm7, xmmword ptr cs:ymmword_1406BB410
+.text:00000001400017C5                 movaps  xmmword ptr [rsp+9D8h+Src+8], xmm7
+.text:00000001400017CD                 lea     rax, [rsp+9D8h+Src+8]
+.text:00000001400017D5                 mov     rcx, 69AF3595E9266C41h
+.text:00000001400017DF                 mov     rcx, rcx
+.text:00000001400017E2                 mov     rax, qword ptr [rsp+9D8h+Src+8]
+.text:00000001400017EA                 mov     rax, rax
+.text:00000001400017ED                 xor     rax, rcx
+.text:00000001400017F0                 mov     rax, rax
+.text:00000001400017F3                 mov     rdx, 177A0673AE98904Dh
+.text:00000001400017FD                 mov     rdx, rdx
+.text:0000000140001800                 mov     rcx, [rsp+9D8h+var_6D0]
+.text:0000000140001808                 mov     rcx, rcx
+.text:000000014000180B                 xor     rcx, rdx
+.text:000000014000180E                 mov     rcx, rcx
+.text:0000000140001811                 mov     rdx, 0C268A1477882858Dh
+.text:000000014000181B                 mov     rdx, rdx
+.text:000000014000181E                 mov     r8, qword ptr [rsp+9D8h+var_6C8]
+.text:0000000140001826                 mov     r8, r8
+.text:0000000140001829                 lea     r9, [r8+rdx]
+.text:000000014000182D                 and     r8, rdx
+.text:0000000140001830                 add     r8, r8
+.text:0000000140001833                 sub     r9, r8
+.text:0000000140001836                 mov     r9, r9
+.text:0000000140001839                 mov     rdx, 489B86620A2864F5h
+.text:0000000140001843                 mov     rdx, rdx
+.text:0000000140001846                 mov     r8, qword ptr [rsp+9D8h+var_6C8+8]
+.text:000000014000184E                 mov     r8, r8
+.text:0000000140001851                 xor     r8, rdx
+.text:0000000140001854                 mov     r8, r8
+.text:0000000140001857                 mov     [rsp+9D8h+var_8E0+8], rax
+.text:000000014000185F                 mov     [rsp+9D8h+var_8D0], rcx
+.text:0000000140001867                 mov     [rsp+9D8h+var_8D0+8], r9
+.text:000000014000186F                 mov     qword ptr [rsp+9D8h+var_8C0], r8
+.text:0000000140001877                 lea     rdi, [rsp+9D8h+var_2A8]
+.text:000000014000187F                 lea     rdx, [rsp+9D8h+var_8E0+8]
+.text:0000000140001887                 mov     rcx, rdi
+.text:000000014000188A                 call    sub_140003C20
+.text:000000014000188F                 call    $+5
+.text:0000000140001894
+.text:0000000140001894 loc_140001894:                          ; DATA XREF: sub_140001780+995↓r
+.text:0000000140001894                                         ; sub_140001780+9D8↓r ...
+.text:0000000140001894                 pop     rax
+.text:0000000140001895                 movaps  [rsp+9D8h+var_6C8], xmm6
+.text:000000014000189D                 movaps  xmmword ptr [rsp+9D8h+Src+8], xmm7
+.text:00000001400018A5                 lea     rax, [rsp+9D8h+Src+8]
+.text:00000001400018AD                 mov     rcx, 56252A329246F8DAh
+.text:00000001400018B7                 mov     rcx, rcx
+.text:00000001400018BA                 mov     rax, qword ptr [rsp+9D8h+Src+8]
+.text:00000001400018C2                 mov     rax, rax
+.text:00000001400018C5                 xor     rax, rcx
+.text:00000001400018C8                 mov     rax, rax
+.text:00000001400018CB                 mov     rdx, 54ABC79CDF396B59h
+.text:00000001400018D5                 mov     rdx, rdx
+.text:00000001400018D8                 mov     rcx, [rsp+9D8h+var_6D0]
+.text:00000001400018E0                 mov     rcx, rcx
+.text:00000001400018E3                 xor     rcx, rdx
+.text:00000001400018E6                 mov     rcx, rcx
+.text:00000001400018E9                 mov     rdx, 48507D61E7122586h
+.text:00000001400018F3                 mov     rdx, rdx
+.text:00000001400018F6                 mov     r8, qword ptr [rsp+9D8h+var_6C8]
+.text:00000001400018FE                 mov     r8, r8
+.text:0000000140001901                 lea     r9, [r8+rdx]
+.text:0000000140001905                 and     r8, rdx
+.text:0000000140001908                 add     r8, r8
+.text:000000014000190B                 sub     r9, r8
+.text:000000014000190E                 mov     r9, r9
+.text:0000000140001911                 mov     rdx, 0B0515098A5D4AE3Ch
+.text:000000014000191B
+.text:000000014000191B loc_14000191B:                          ; DATA XREF: sub_140001780+B4D↓r
+.text:000000014000191B                 mov     rdx, rdx
+.text:000000014000191E                 mov     r8, qword ptr [rsp+9D8h+var_6C8+8]
+.text:0000000140001926                 mov     r8, r8
+.text:0000000140001929                 xor     r8, rdx
+.text:000000014000192C                 mov     r8, r8
+.text:000000014000192F                 mov     [rsp+9D8h+var_8E0+8], rax
+.text:0000000140001937                 mov     [rsp+9D8h+var_8D0], rcx
+.text:000000014000193F                 mov     [rsp+9D8h+var_8D0+8], r9
+.text:0000000140001947                 mov     qword ptr [rsp+9D8h+var_8C0], r8
+.text:000000014000194F                 lea     r14, [rsp+9D8h+var_88]
+.text:0000000140001957                 lea     rbx, [rsp+9D8h+var_8E0+8]
+.text:000000014000195F                 mov     rcx, r14
+.text:0000000140001962                 mov     rdx, rbx
+.text:0000000140001965                 call    sub_140003C20
+.text:000000014000196A                 jmp     short loc_140001970
+.text:000000014000196C ; ---------------------------------------------------------------------------
+.text:000000014000196C                 push    rbp
+.text:000000014000196D                 mov     rbp, rsp
+.text:0000000140001970
+.text:0000000140001970 loc_140001970:                          ; CODE XREF: sub_140001780+1EA↑j
+.text:0000000140001970                 mov     qword ptr [rsp+9D8h+Src+8], rdi
+.text:0000000140001978                 mov     [rsp+9D8h+var_6D0], r14
+.text:0000000140001980                 lea     rax, [rsp+9D8h+Src+8]
+.text:0000000140001988                 jmp     short loc_14000198B
+.text:0000000140001988 ; ---------------------------------------------------------------------------
+.text:000000014000198A                 db 0E8h
+.text:000000014000198B ; ---------------------------------------------------------------------------
+.text:000000014000198B
+.text:000000014000198B loc_14000198B:                          ; CODE XREF: sub_140001780+208↑j
+.text:000000014000198B                 lea     rax, unk_1406B8DC1
+.text:0000000140001992                 mov     qword ptr [rsp+9D8h+Src+8], rax
+.text:000000014000199A                 lea     rax, [rsp+9D8h+Src+8]
+.text:00000001400019A2                 jmp     short loc_1400019A5
+.text:00000001400019A2 ; ---------------------------------------------------------------------------
+.text:00000001400019A4                 db 0FFh
+.text:00000001400019A5 ; ---------------------------------------------------------------------------
+.text:00000001400019A5
+.text:00000001400019A5 loc_1400019A5:                          ; CODE XREF: sub_140001780+222↑j
+.text:00000001400019A5                 call    sub_1400749E0
+.text:00000001400019AA                 mov     rdi, rax
+.text:00000001400019AD                 call    sub_14008EA70
+.text:00000001400019B2                 mov     r14, rax
+.text:00000001400019B5                 xor     r14, rdi
+.text:00000001400019B8                 call    sub_140015910
+.text:00000001400019BD                 mov     rdi, rax
+.text:00000001400019C0                 call    sub_140084280
+.text:00000001400019C5                 mov     r15, rax
+.text:00000001400019C8                 xor     r15, rdi
+.text:00000001400019CB                 xor     r15, r14
+.text:00000001400019CE                 call    sub_1400DE120
+.text:00000001400019D3                 mov     rdi, rax
+.text:00000001400019D6                 call    sub_1400974A0
+.text:00000001400019DB                 mov     r14, rax
+.text:00000001400019DE                 xor     r14, rdi
+.text:00000001400019E1                 call    sub_1400A4560
+.text:00000001400019E6                 mov     r12, rax
+.text:00000001400019E9                 xor     r12, r14
+.text:00000001400019EC                 xor     r12, r15
+.text:00000001400019EF                 call    sub_14009AD30
+.text:00000001400019F4                 mov     r14, rax
+.text:00000001400019F7                 call    sub_1400A4BB0
+.text:00000001400019FC                 mov     rdi, rax
+.text:00000001400019FF                 xor     rdi, r14
+.text:0000000140001A02                 xor     rdi, r12
+.text:0000000140001A05                 mov     qword ptr [rsp+9D8h+Src+8], rdi
+.text:0000000140001A0D                 lea     rax, [rsp+9D8h+Src+8]
+.text:0000000140001A15                 or      rdi, 1
+.text:0000000140001A19                 mov     rax, rdi
+.text:0000000140001A1C                 mov     rax, rax
+.text:0000000140001A1F                 mov     rcx, rax
+.text:0000000140001A22                 and     rcx, 0FFFFFFFFFFFFFFFEh
+.text:0000000140001A26                 mov     rcx, rcx
+.text:0000000140001A29                 cmp     rcx, rax
+.text:0000000140001A2C                 jbe     loc_140001B36
+.text:0000000140001A32                 lea     r14, [rsp+9D8h+Src+8]
+.text:0000000140001A3A                 mov     rcx, r14
+.text:0000000140001A3D                 mov     rdx, qword ptr [rsp+9D8h+var_948]
+.text:0000000140001A45                 call    sub_140070360
+.text:0000000140001A4A                 xorps   xmm6, xmm6
+.text:0000000140001A4D                 movaps  [rsp+9D8h+var_2E0+8], xmm6
+.text:0000000140001A55                 lea     rcx, [rsp+9D8h+var_2E0+8]
+.text:0000000140001A5D                 mov     rdx, r14
+.text:0000000140001A60                 call    sub_140072E10
+.text:0000000140001A65                 movaps  [rsp+9D8h+var_270+8], xmm6
+.text:0000000140001A6D                 movaps  [rsp+9D8h+var_280+8], xmm6
+.text:0000000140001A75                 movaps  [rsp+9D8h+var_290+8], xmm6
+.text:0000000140001A7D                 lea     r9, [rsp+9D8h+var_6C8]
+.text:0000000140001A85                 lea     rcx, [rsp+9D8h+var_290+8]
+.text:0000000140001A8D                 mov     edx, 30h ; '0'
+.text:0000000140001A92                 mov     r8, r14
+.text:0000000140001A95                 call    sub_14006B170
+.text:0000000140001A9A                 movaps  [rsp+9D8h+var_8B0+8], xmm6
+.text:0000000140001AA2                 movaps  [rsp+9D8h+var_8C0+8], xmm6
+.text:0000000140001AAA                 movaps  xmmword ptr [rsp+9D8h+var_8D0+8], xmm6
+.text:0000000140001AB2                 movaps  xmmword ptr [rsp+9D8h+var_8E0+8], xmm6
+.text:0000000140001ABA                 lea     r15, dword_1406BA6EC
+.text:0000000140001AC1                 mov     r9d, 40h ; '@'
+.text:0000000140001AC7                 mov     rcx, r14
+.text:0000000140001ACA                 mov     rdx, r15
+.text:0000000140001ACD                 mov     r8, rbx
+.text:0000000140001AD0                 call    sub_1400759B0
+.text:0000000140001AD5                 mov     [rsp+9D8h+var_9B0], rbx ; __int64
+.text:0000000140001ADA                 mov     qword ptr [rsp+9D8h+dwBytes], 40h ; '@' ; dwBytes
+.text:0000000140001AE3                 mov     [rsp+9D8h+var_9B8], 10h ; __int64
+.text:0000000140001AEC                 lea     r9, dword_1406BA6F8 ; int
+.text:0000000140001AF3                 lea     rcx, [rsp+9D8h+var_980+8] ; int
+.text:0000000140001AF8                 mov     rdx, r14        ; int
+.text:0000000140001AFB                 mov     r8, r15         ; int
+.text:0000000140001AFE                 call    sub_14006CDD0
+.text:0000000140001B03                 movzx   eax, byte ptr [rsp+9D8h+var_960]
+.text:0000000140001B08                 xor     rax, [rsp+9D8h+var_968]
+.text:0000000140001B0D                 cmp     qword ptr [rsp+9D8h+var_980+8], 0
+.text:0000000140001B13                 mov     rbx, [rsp+9D8h+lpMem]
+.text:0000000140001B18                 mov     qword ptr [rsp+9D8h+var_980+8], rax
+.text:0000000140001B1D                 lea     rax, [rsp+9D8h+var_980+8]
+.text:0000000140001B22                 jz      short loc_140001B36
+.text:0000000140001B24                 call    GetProcessHeap
+.text:0000000140001B29                 mov     rcx, rax        ; hHeap
+.text:0000000140001B2C                 xor     edx, edx        ; dwFlags
+.text:0000000140001B2E                 mov     r8, rbx         ; lpMem
+.text:0000000140001B31                 call    HeapFree
+.text:0000000140001B36
+.text:0000000140001B36 loc_140001B36:                          ; CODE XREF: sub_140001780+2AC↑j
+.text:0000000140001B36                                         ; sub_140001780+3A2↑j
+.text:0000000140001B36                 mov     rax, rdi
+.text:0000000140001B39                 mov     rax, rax
+.text:0000000140001B3C                 mov     rcx, rax
+.text:0000000140001B3F                 and     rcx, 0FFFFFFFFFFFFFFFEh
+.text:0000000140001B43                 mov     rcx, rcx
+.text:0000000140001B46                 cmp     rcx, rax
+.text:0000000140001B49                 jbe     loc_140001C71
+.text:0000000140001B4F                 xorps   xmm6, xmm6
+.text:0000000140001B52                 movaps  [rsp+9D8h+var_280+8], xmm6
+.text:0000000140001B5A                 movaps  [rsp+9D8h+var_290+8], xmm6
+.text:0000000140001B62                 lea     rbx, unk_1406BA708
+.text:0000000140001B69                 lea     rcx, [rsp+9D8h+var_290+8]
+.text:0000000140001B71                 mov     rdx, rbx
+.text:0000000140001B74                 call    sub_14008BD70
+.text:0000000140001B79                 movaps  [rsp+9D8h+var_8B0+8], xmm6
+.text:0000000140001B81                 movaps  [rsp+9D8h+var_8C0+8], xmm6
+.text:0000000140001B89                 movaps  xmmword ptr [rsp+9D8h+var_8D0+8], xmm6
+.text:0000000140001B91                 movaps  xmmword ptr [rsp+9D8h+var_8E0+8], xmm6
+.text:0000000140001B99                 mov     byte ptr [rsp+9D8h+var_9B8], 0
+.text:0000000140001B9E                 lea     rdx, unk_1406BA748
+.text:0000000140001BA5                 lea     rcx, [rsp+9D8h+var_8E0+8]
+.text:0000000140001BAD                 xor     r8d, r8d
+.text:0000000140001BB0                 xor     r9d, r9d
+.text:0000000140001BB3                 call    sub_14008C5C0
+.text:0000000140001BB8                 movaps  [rsp+9D8h+var_630+8], xmm6
+.text:0000000140001BC0                 movaps  [rsp+9D8h+var_640+8], xmm6
+.text:0000000140001BC8                 movaps  [rsp+9D8h+var_650+8], xmm6
+.text:0000000140001BD0                 movaps  [rsp+9D8h+var_660+8], xmm6
+.text:0000000140001BD8                 movaps  [rsp+9D8h+var_670+8], xmm6
+.text:0000000140001BE0                 movaps  [rsp+9D8h+var_680+8], xmm6
+.text:0000000140001BE8                 movaps  [rsp+9D8h+var_690+8], xmm6
+.text:0000000140001BF0                 movaps  [rsp+9D8h+var_6A0+8], xmm6
+.text:0000000140001BF8                 movaps  [rsp+9D8h+var_6B0+8], xmm6
+.text:0000000140001C00                 movaps  xmmword ptr [rsp+9D8h+var_6B8], xmm6
+.text:0000000140001C08                 movaps  [rsp+9D8h+var_6C8], xmm6
+.text:0000000140001C10                 movaps  xmmword ptr [rsp+9D8h+Src+8], xmm6
+.text:0000000140001C18                 mov     [rsp+9D8h+var_618], 0
+.text:0000000140001C24                 lea     rcx, [rsp+9D8h+Src+8] ; Src
+.text:0000000140001C2C                 call    sub_140089340
+.text:0000000140001C31                 movaps  xmmword ptr [rsp+9D8h+var_980+8], xmm6
+.text:0000000140001C36                 lea     rcx, [rsp+9D8h+var_980+8]
+.text:0000000140001C3B                 mov     rdx, rbx
+.text:0000000140001C3E                 call    sub_140089900
+.text:0000000140001C43                 mov     eax, dword ptr [rsp+9D8h+var_290+8]
+.text:0000000140001C4A                 xor     rax, [rsp+9D8h+var_8E0+8]
+.text:0000000140001C52                 xor     rax, qword ptr [rsp+9D8h+Src+8]
+.text:0000000140001C5A                 mov     ecx, [rsp+9D8h+var_980+8]
+.text:0000000140001C5E                 xor     rcx, rax
+.text:0000000140001C61                 mov     qword ptr [rsp+9D8h+var_2E0+8], rcx
+.text:0000000140001C69                 lea     rax, [rsp+9D8h+var_2E0+8]
+.text:0000000140001C71
+.text:0000000140001C71 loc_140001C71:                          ; CODE XREF: sub_140001780+3C9↑j
+.text:0000000140001C71                 mov     rax, rdi
+.text:0000000140001C74                 mov     rax, rax
+.text:0000000140001C77                 mov     rcx, rax
+.text:0000000140001C7A                 and     rcx, 0FFFFFFFFFFFFFFFEh
+.text:0000000140001C7E                 mov     rcx, rcx
+.text:0000000140001C81                 cmp     rcx, rax
+.text:0000000140001C84                 jbe     loc_140001D55
+.text:0000000140001C8A                 lea     rdx, unk_1406BA7C8
+.text:0000000140001C91                 lea     r8, unk_1406BA7F8
+.text:0000000140001C98                 lea     rbx, unk_1406BAF40
+.text:0000000140001C9F                 lea     r14, [rsp+9D8h+var_2E0+8]
+.text:0000000140001CA7                 mov     rcx, r14
+.text:0000000140001CAA                 mov     r9, rbx
+.text:0000000140001CAD                 call    sub_140004B90
+.text:0000000140001CB2                 lea     r8, unk_1406BA828
+.text:0000000140001CB9                 lea     rcx, [rsp+9D8h+var_980+8]
+.text:0000000140001CBE                 mov     rdx, r14
+.text:0000000140001CC1                 mov     r9, rbx
+.text:0000000140001CC4                 call    sub_140005310
+.text:0000000140001CC9                 xorps   xmm0, xmm0
+.text:0000000140001CCC                 movaps  [rsp+9D8h+var_270+8], xmm0
+.text:0000000140001CD4                 movaps  [rsp+9D8h+var_280+8], xmm0
+.text:0000000140001CDC                 movaps  [rsp+9D8h+var_290+8], xmm0
+.text:0000000140001CE4                 movaps  xmm0, cs:xmmword_140114000
+.text:0000000140001CEB                 movups  [rsp+9D8h+var_8C0+8], xmm0
+.text:0000000140001CF3                 movups  xmmword ptr [rsp+9D8h+var_8D0+8], xmm0
+.text:0000000140001CFB                 movups  xmmword ptr [rsp+9D8h+var_8E0+8], xmm0
+.text:0000000140001D03                 movups  xmmword ptr [rsp+9D8h+var_6B8], xmm0
+.text:0000000140001D0B                 movups  [rsp+9D8h+var_6C8], xmm0
+.text:0000000140001D13                 movups  xmmword ptr [rsp+9D8h+Src+8], xmm0
+.text:0000000140001D1B                 lea     rcx, [rsp+9D8h+var_290+8]
+.text:0000000140001D23                 lea     rdx, [rsp+9D8h+var_8E0+8]
+.text:0000000140001D2B                 lea     r8, [rsp+9D8h+Src+8]
+.text:0000000140001D33                 call    sub_140013F70
+.text:0000000140001D38                 mov     rax, qword ptr [rsp+9D8h+var_290+8]
+.text:0000000140001D40                 xor     rax, qword ptr [rsp+9D8h+var_980+8]
+.text:0000000140001D45                 mov     [rsp+9D8h+var_8E0], rax
+.text:0000000140001D4D                 lea     rax, [rsp+9D8h+var_8E0]
+.text:0000000140001D55
+.text:0000000140001D55 loc_140001D55:                          ; CODE XREF: sub_140001780+504↑j
+.text:0000000140001D55                 mov     rax, rdi
+.text:0000000140001D58                 mov     rax, rax
+.text:0000000140001D5B                 mov     rcx, rax
+.text:0000000140001D5E                 and     rcx, 0FFFFFFFFFFFFFFFEh
+.text:0000000140001D62                 mov     rcx, rcx
+.text:0000000140001D65                 cmp     rcx, rax
+.text:0000000140001D68                 jbe     loc_140001E24
+.text:0000000140001D6E                 mov     qword ptr [rsp+9D8h+dwBytes], 20h ; ' ' ; dwBytes
+.text:0000000140001D77                 mov     dword ptr [rsp+9D8h+var_9B0], 64h ; 'd' ; int
+.text:0000000140001D7F                 mov     [rsp+9D8h+var_9B8], 10h ; __int64
+.text:0000000140001D88                 lea     rcx, [rsp+9D8h+var_8E0+8] ; int
+.text:0000000140001D90                 lea     r9, [rsp+9D8h+var_2A8] ; int
+.text:0000000140001D98                 mov     r8d, 20h ; ' '  ; int
+.text:0000000140001D9E                 mov     rdx, qword ptr [rsp+9D8h+var_948] ; int
+.text:0000000140001DA6                 call    sub_14007ACF0
+.text:0000000140001DAB                 lea     rbx, [rsp+9D8h+Src+8]
+.text:0000000140001DB3                 mov     r8d, 400h       ; Size
+.text:0000000140001DB9                 mov     rcx, rbx        ; void *
+.text:0000000140001DBC                 xor     edx, edx        ; Val
+.text:0000000140001DBE                 call    memset
+.text:0000000140001DC3                 lea     rcx, unk_1406BA858
+.text:0000000140001DCA                 mov     rdx, rcx
+.text:0000000140001DCD                 mov     r8, rbx
+.text:0000000140001DD0                 call    sub_14007EDC0
+.text:0000000140001DD5                 cmp     [rsp+9D8h+var_8D0+8], 0
+.text:0000000140001DDE                 jz      loc_1400028DE
+.text:0000000140001DE4                 mov     rbx, [rsp+9D8h+var_8D0]
+.text:0000000140001DEC                 movzx   eax, byte ptr [rbx]
+.text:0000000140001DEF                 xor     rax, qword ptr [rsp+9D8h+Src+8]
+.text:0000000140001DF7                 mov     qword ptr [rsp+9D8h+var_290+8], rax
+.text:0000000140001DFF                 lea     rax, [rsp+9D8h+var_290+8]
+.text:0000000140001E07                 cmp     [rsp+9D8h+var_8E0+8], 0
+.text:0000000140001E10                 jz      short loc_140001E24
+.text:0000000140001E12                 call    GetProcessHeap
+.text:0000000140001E17                 mov     rcx, rax        ; hHeap
+.text:0000000140001E1A                 xor     edx, edx        ; dwFlags
+.text:0000000140001E1C                 mov     r8, rbx         ; lpMem
+.text:0000000140001E1F                 call    HeapFree
+.text:0000000140001E24
+.text:0000000140001E24 loc_140001E24:                          ; CODE XREF: sub_140001780+5E8↑j
+.text:0000000140001E24                                         ; sub_140001780+690↑j
+.text:0000000140001E24                 mov     rax, rdi
+.text:0000000140001E27                 mov     rax, rax
+.text:0000000140001E2A                 mov     rcx, rax
+.text:0000000140001E2D                 and     rcx, 0FFFFFFFFFFFFFFFEh
+.text:0000000140001E31                 mov     rcx, rcx
+.text:0000000140001E34                 cmp     rcx, rax
+.text:0000000140001E37                 jbe     loc_14000200D
+.text:0000000140001E3D                 lea     rbx, [rsp+9D8h+var_290+8]
+.text:0000000140001E45                 mov     r8d, 200h       ; Size
+.text:0000000140001E4B                 mov     rcx, rbx        ; void *
+.text:0000000140001E4E                 xor     edx, edx        ; Val
+.text:0000000140001E50                 call    memset
+.text:0000000140001E55                 mov     rcx, rbx
+.text:0000000140001E58                 call    sub_14009B490
+.text:0000000140001E5D                 movaps  xmm0, cs:xmmword_140114010
+.text:0000000140001E64                 movaps  xmmword ptr [rsp+9D8h+var_8E0+8], xmm0
+.text:0000000140001E6C                 movaps  xmmword ptr [rsp+9D8h+var_8D0+8], xmm0
+.text:0000000140001E74                 movaps  [rsp+9D8h+var_8C0+8], xmm0
+.text:0000000140001E7C                 movaps  [rsp+9D8h+var_8B0+8], xmm0
+.text:0000000140001E84                 movaps  [rsp+9D8h+var_8A0+8], xmm0
+.text:0000000140001E8C                 movaps  [rsp+9D8h+var_890+8], xmm0
+.text:0000000140001E94                 movaps  [rsp+9D8h+var_880+8], xmm0
+.text:0000000140001E9C                 movaps  [rsp+9D8h+var_870+8], xmm0
+.text:0000000140001EA4                 movaps  [rsp+9D8h+var_860+8], xmm0
+.text:0000000140001EAC                 movaps  [rsp+9D8h+var_850+8], xmm0
+.text:0000000140001EB4                 movaps  [rsp+9D8h+var_840+8], xmm0
+.text:0000000140001EBC                 movaps  [rsp+9D8h+var_830+8], xmm0
+.text:0000000140001EC4                 movaps  [rsp+9D8h+var_820+8], xmm0
+.text:0000000140001ECC                 movaps  [rsp+9D8h+var_810+8], xmm0
+.text:0000000140001ED4                 movaps  [rsp+9D8h+var_800+8], xmm0
+.text:0000000140001EDC                 movaps  [rsp+9D8h+var_7F0+8], xmm0
+.text:0000000140001EE4                 movaps  [rsp+9D8h+var_7E0+8], xmm0
+.text:0000000140001EEC                 movaps  [rsp+9D8h+var_7D0+8], xmm0
+.text:0000000140001EF4                 movaps  [rsp+9D8h+var_7C0+8], xmm0
+.text:0000000140001EFC                 movaps  [rsp+9D8h+var_7B0+8], xmm0
+.text:0000000140001F04                 movaps  [rsp+9D8h+var_7A0+8], xmm0
+.text:0000000140001F0C                 movaps  [rsp+9D8h+var_790+8], xmm0
+.text:0000000140001F14                 movaps  [rsp+9D8h+var_780+8], xmm0
+.text:0000000140001F1C                 movaps  [rsp+9D8h+var_770+8], xmm0
+.text:0000000140001F24                 movaps  [rsp+9D8h+var_760+8], xmm0
+.text:0000000140001F2C                 movaps  [rsp+9D8h+var_750+8], xmm0
+.text:0000000140001F34                 movaps  [rsp+9D8h+var_740+8], xmm0
+.text:0000000140001F3C                 movaps  [rsp+9D8h+var_730+8], xmm0
+.text:0000000140001F44                 movaps  [rsp+9D8h+var_720+8], xmm0
+.text:0000000140001F4C                 movaps  [rsp+9D8h+var_710+8], xmm0
+.text:0000000140001F54                 movaps  [rsp+9D8h+var_700+8], xmm0
+.text:0000000140001F5C                 movaps  [rsp+9D8h+var_6F0+8], xmm0
+.text:0000000140001F64                 lea     rcx, [rsp+9D8h+Src+8]
+.text:0000000140001F6C                 lea     r8, [rsp+9D8h+var_8E0+8]
+.text:0000000140001F74                 mov     rdx, rbx
+.text:0000000140001F77                 call    sub_14009EF60
+.text:0000000140001F7C                 lea     rdx, unk_1406BAC80
+.text:0000000140001F83                 lea     rcx, [rsp+9D8h+var_980+8]
+.text:0000000140001F88                 call    sub_14009E6E0
+.text:0000000140001F8D                 cmp     [rsp+9D8h+var_968], 0
+.text:0000000140001F93                 jz      loc_1400028F0
+.text:0000000140001F99                 cmp     [rsp+9D8h+var_950], 0
+.text:0000000140001FA2                 jz      loc_140002902
+.text:0000000140001FA8                 mov     rsi, qword ptr [rsp+9D8h+var_980+8]
+.text:0000000140001FAD                 mov     rbx, [rsp+9D8h+lpMem]
+.text:0000000140001FB2                 mov     rax, [rsp+9D8h+var_960]
+.text:0000000140001FB7                 mov     r14, [rsp+9D8h+var_958]
+.text:0000000140001FBF                 movsx   rcx, word ptr [rsp+9D8h+Src+8]
+.text:0000000140001FC8                 movzx   edx, byte ptr [rbx]
+.text:0000000140001FCB                 xor     rdx, rcx
+.text:0000000140001FCE                 movzx   ecx, byte ptr [r14]
+.text:0000000140001FD2                 xor     rcx, rdx
+.text:0000000140001FD5                 mov     qword ptr [rsp+9D8h+var_980+8], rcx
+.text:0000000140001FDA                 lea     rcx, [rsp+9D8h+var_980+8]
+.text:0000000140001FDF                 test    rax, rax
+.text:0000000140001FE2                 jz      short loc_140001FF6
+.text:0000000140001FE4                 call    GetProcessHeap
+.text:0000000140001FE9                 mov     rcx, rax        ; hHeap
+.text:0000000140001FEC                 xor     edx, edx        ; dwFlags
+.text:0000000140001FEE                 mov     r8, r14         ; lpMem
+.text:0000000140001FF1                 call    HeapFree
+.text:0000000140001FF6
+.text:0000000140001FF6 loc_140001FF6:                          ; CODE XREF: sub_140001780+862↑j
+.text:0000000140001FF6                 test    rsi, rsi
+.text:0000000140001FF9                 jz      short loc_14000200D
+.text:0000000140001FFB                 call    GetProcessHeap
+.text:0000000140002000                 mov     rcx, rax        ; hHeap
+.text:0000000140002003                 xor     edx, edx        ; dwFlags
+.text:0000000140002005                 mov     r8, rbx         ; lpMem
+.text:0000000140002008                 call    HeapFree
+.text:000000014000200D
+.text:000000014000200D loc_14000200D:                          ; CODE XREF: sub_140001780+6B7↑j
+.text:000000014000200D                                         ; sub_140001780+879↑j
+.text:000000014000200D                 mov     rdi, rdi
+.text:0000000140002010                 mov     rax, rdi
+.text:0000000140002013                 and     rax, 0FFFFFFFFFFFFFFFEh
+.text:0000000140002017                 mov     rax, rax
+.text:000000014000201A                 cmp     rax, rdi
+.text:000000014000201D                 jbe     short loc_140002064
+.text:000000014000201F                 mov     rsi, qword ptr [rsp+9D8h+var_948]
+.text:0000000140002027                 mov     rcx, rsi
+.text:000000014000202A                 call    sub_140091160
+.text:000000014000202F                 mov     ebx, eax
+.text:0000000140002031                 lea     rcx, [rsp+9D8h+Src+8]
+.text:0000000140002039                 mov     rdx, rsi
+.text:000000014000203C                 xor     r8d, r8d
+.text:000000014000203F                 mov     r9d, 20h ; ' '
+.text:0000000140002045                 call    sub_140093E20
+.text:000000014000204A                 xor     bl, byte ptr [rsp+9D8h+Src+8]
+.text:0000000140002051                 movzx   eax, bl
+.text:0000000140002054                 mov     [rsp+9D8h+var_8E0+8], rax
+.text:000000014000205C                 lea     rax, [rsp+9D8h+var_8E0+8]
+.text:0000000140002064
+.text:0000000140002064 loc_140002064:                          ; CODE XREF: sub_140001780+89D↑j
+.text:0000000140002064                 xor     eax, eax
+.text:0000000140002066                 jz      short near ptr loc_140002068+1
+.text:0000000140002068
+.text:0000000140002068 loc_140002068:                          ; CODE XREF: sub_140001780+8E6↑j
+.text:0000000140002068                 call    loc_14005ADB5
+.text:000000014000206D                 add     eax, 8948006Ch
+.text:0000000140002072                 and     al, 60h
+.text:0000000140002075                 lea     rax, [rsp+9D8h+var_980+8]
+.text:000000014000207A                 xorps   xmm6, xmm6
+.text:000000014000207D                 movaps  [rsp+9D8h+var_630+8], xmm6
+.text:0000000140002085                 movaps  [rsp+9D8h+var_640+8], xmm6
+.text:000000014000208D                 movaps  [rsp+9D8h+var_650+8], xmm6
+.text:0000000140002095                 movaps  [rsp+9D8h+var_660+8], xmm6
+.text:000000014000209D                 movaps  [rsp+9D8h+var_670+8], xmm6
+.text:00000001400020A5                 movaps  [rsp+9D8h+var_680+8], xmm6
+.text:00000001400020AD                 movaps  [rsp+9D8h+var_690+8], xmm6
+.text:00000001400020B5                 movaps  [rsp+9D8h+var_6A0+8], xmm6
+.text:00000001400020BD                 movaps  [rsp+9D8h+var_6B0+8], xmm6
+.text:00000001400020C5                 movaps  xmmword ptr [rsp+9D8h+var_6B8], xmm6
+.text:00000001400020CD                 movaps  [rsp+9D8h+var_6C8], xmm6
+.text:00000001400020D5                 movaps  xmmword ptr [rsp+9D8h+Src+8], xmm6
+.text:00000001400020DD                 mov     qword ptr [rsp+9D8h+var_290+8], 18h
+.text:00000001400020E9                 lea     rax, [rsp+9D8h+var_290+8]
+.text:00000001400020F1                 cmp     qword ptr [rsp+9D8h+var_290+8], 0
+.text:00000001400020FA                 jz      loc_140002524
+.text:0000000140002100                 mov     al, 1
+.text:0000000140002102                 mov     dword ptr [rsp+9D8h+var_998], eax
+.text:0000000140002106                 xor     edi, edi
+.text:0000000140002108                 jmp     short loc_140002145
+.text:0000000140002108 ; ---------------------------------------------------------------------------
+.text:000000014000210A                 align 10h
+.text:0000000140002110
+.text:0000000140002110 loc_140002110:                          ; CODE XREF: sub_140001780+C49↓j
+.text:0000000140002110                 mov     rax, [rsp+9D8h+var_988]
+.text:0000000140002115                 movzx   eax, word ptr ds:(loc_140001894 - 140001894h)[rax+r15*2]
+.text:000000014000211A                 mov     eax, [rbx+rax*4]
+.text:000000014000211D                 mov     eax, eax
+.text:000000014000211F                 mov     eax, eax
+.text:0000000140002121                 add     r13, rax
+.text:0000000140002124                 mov     r13, r13
+.text:0000000140002127                 mov     rdi, qword ptr [rsp+9D8h+var_998+8]
+.text:000000014000212C                 mov     qword ptr [rsp+rdi*8+9D8h+Src+8], r13
+.text:0000000140002134
+.text:0000000140002134 loc_140002134:                          ; CODE XREF: sub_140001780+C68↓j
+.text:0000000140002134                                         ; sub_140001780+C7A↓j
+.text:0000000140002134                 inc     rdi
+.text:0000000140002137                 cmp     rdi, qword ptr [rsp+9D8h+var_290+8]
+.text:000000014000213F                 jnb     loc_1400023FF
+.text:0000000140002145
+.text:0000000140002145 loc_140002145:                          ; CODE XREF: sub_140001780+988↑j
+.text:0000000140002145                 cmp     rdi, 18h
+.text:0000000140002149                 jz      loc_1400028C6
+.text:000000014000214F                 mov     rax, qword ptr [rsp+9D8h+var_980+8]
+.text:0000000140002154                 lea     rcx, [rdi+rdi*2]
+.text:0000000140002158                 mov     edx, dword ptr ds:(loc_140001894 - 140001894h)[rax+rcx*4]
+.text:000000014000215B                 mov     r14d, [rax+rcx*4+4]
+.text:0000000140002160                 mov     eax, [rax+rcx*4+8]
+.text:0000000140002164                 mov     r10, gs:30h
+.text:000000014000216D                 mov     rcx, cs:qword_140113028
+.text:0000000140002174                 mov     r11, cs:qword_140113020
+.text:000000014000217B                 mov     r9, r11
+.text:000000014000217E                 shr     r9, 20h
+.text:0000000140002182                 mov     r8, rcx
+.text:0000000140002185                 shr     r8, 20h
+.text:0000000140002189                 mov     dword ptr [rsp+9D8h+var_8E0+8], 7A2B5C8Dh
+.text:0000000140002194                 lea     rbx, [rsp+9D8h+var_8E0+8]
+.text:000000014000219C                 mov     esi, dword ptr [rsp+9D8h+var_8E0+8]
+.text:00000001400021A3                 sub     r11d, esi
+.text:00000001400021A6                 mov     r11d, r11d
+.text:00000001400021A9                 mov     r10, r10
+.text:00000001400021AC                 mov     r11d, r11d
+.text:00000001400021AF                 mov     r10, [r10+r11]
+.text:00000001400021B3                 mov     rsi, [r10+18h]
+.text:00000001400021B7                 add     rsi, 20h ; ' '
+.text:00000001400021BB                 mov     rsi, rsi
+.text:00000001400021BE                 mov     r12, [rsi]
+.text:00000001400021C1                 mov     dword ptr [rsp+9D8h+var_8E0+8], 4E9F1B3Ah
+.text:00000001400021CC                 sub     r9d, dword ptr [rsp+9D8h+var_8E0+8]
+.text:00000001400021D4                 movzx   r9d, byte ptr [r10+r9]
+.text:00000001400021D9                 mov     dword ptr [rsp+9D8h+var_8E0+8], 0D5C8A762h
+.text:00000001400021E4                 mov     r11d, dword ptr [rsp+9D8h+var_8E0+8]
+.text:00000001400021EC                 mov     dword ptr [rsp+9D8h+var_8E0+8], 0B31E7F46h
+.text:00000001400021F7                 sub     r8d, dword ptr [rsp+9D8h+var_8E0+8]
+.text:00000001400021FF                 sub     ecx, r11d
+.text:0000000140002202                 and     r8d, [r10+rcx]
+.text:0000000140002206                 or      r8d, r9d
+.text:0000000140002209                 mov     dword ptr [rsp+9D8h+var_8E0+8], 1
+.text:0000000140002214                 sub     r8d, dword ptr [rsp+9D8h+var_8E0+8]
+.text:000000014000221C                 mov     dword ptr [rsp+9D8h+var_8E0+8], 1Fh
+.text:0000000140002227                 movzx   ecx, byte ptr [rsp+9D8h+var_8E0+8]
+.text:000000014000222F                 shr     r8d, cl
+.text:0000000140002232                 imul    r14d, r8d
+.text:0000000140002236                 mov     r14d, r14d
+.text:0000000140002239                 mov     edx, edx
+.text:000000014000223B                 mov     edx, edx
+.text:000000014000223D                 mov     r14d, r14d
+.text:0000000140002240                 xor     r14d, edx
+.text:0000000140002243                 mov     r14d, r14d
+.text:0000000140002246                 mov     dword ptr [rsp+9D8h+var_8E0+8], 0
+.text:0000000140002251                 mov     ecx, dword ptr [rsp+9D8h+var_8E0+8]
+.text:0000000140002258                 sub     ecx, r8d
+.text:000000014000225B                 mov     ecx, ecx
+.text:000000014000225D                 mov     dword ptr [rsp+9D8h+var_8E0+8], eax
+.text:0000000140002264                 and     ecx, dword ptr [rsp+9D8h+var_8E0+8]
+.text:000000014000226B                 mov     ecx, ecx
+.text:000000014000226D                 mov     eax, cs:dword_1406D20F0
+.text:0000000140002273                 mov     eax, eax
+.text:0000000140002275                 or      eax, ecx
+.text:0000000140002277                 mov     eax, eax
+.text:0000000140002279                 mov     cs:dword_1406D20F0, eax
+.text:000000014000227F                 mov     qword ptr [rsp+9D8h+var_980], rsi
+.text:0000000140002284                 cmp     r12, rsi
+.text:0000000140002287                 jz      loc_1400023E0
+.text:000000014000228D                 mov     qword ptr [rsp+9D8h+var_998+8], rdi
+.text:0000000140002292                 jmp     short loc_1400022AF
+.text:0000000140002292 ; ---------------------------------------------------------------------------
+.text:0000000140002294                 align 20h
+.text:00000001400022A0
+.text:00000001400022A0 loc_1400022A0:                          ; CODE XREF: sub_140001780+B3D↓j
+.text:00000001400022A0                                         ; sub_140001780+B57↓j ...
+.text:00000001400022A0                 mov     r12, [r12]
+.text:00000001400022A4                 cmp     r12, qword ptr [rsp+9D8h+var_980]
+.text:00000001400022A9                 jz      loc_1400023ED
+.text:00000001400022AF
+.text:00000001400022AF loc_1400022AF:                          ; CODE XREF: sub_140001780+B12↑j
+.text:00000001400022AF                 lea     rax, [r12+20h]
+.text:00000001400022B4                 mov     rax, rax
+.text:00000001400022B7                 mov     r13, qword ptr ds:(loc_140001894 - 140001894h)[rax]
+.text:00000001400022BA                 test    r13, r13
+.text:00000001400022BD                 jz      short loc_1400022A0
+.text:00000001400022BF                 mov     eax, [r13+3Ch]
+.text:00000001400022C3                 mov     eax, eax
+.text:00000001400022C5                 mov     eax, eax
+.text:00000001400022C7                 add     rax, r13
+.text:00000001400022CA                 mov     rax, rax
+.text:00000001400022CD                 mov     eax, dword ptr ds:(loc_14000191B+1 - 140001894h)[rax]
+.text:00000001400022D3                 mov     eax, eax
+.text:00000001400022D5                 test    eax, eax
+.text:00000001400022D7                 jz      short loc_1400022A0
+.text:00000001400022D9                 mov     ecx, eax
+.text:00000001400022DB                 add     rcx, r13
+.text:00000001400022DE                 mov     rcx, rcx
+.text:00000001400022E1                 mov     eax, [rcx+18h]
+.text:00000001400022E4                 mov     eax, eax
+.text:00000001400022E6                 mov     edx, [rcx+20h]
+.text:00000001400022E9                 mov     edx, edx
+.text:00000001400022EB                 mov     esi, edx
+.text:00000001400022ED                 mov     edx, [rcx+24h]
+.text:00000001400022F0                 mov     edx, edx
+.text:00000001400022F2                 mov     edx, edx
+.text:00000001400022F4                 mov     ecx, [rcx+1Ch]
+.text:00000001400022F7                 mov     ecx, ecx
+.text:00000001400022F9                 mov     ebx, ecx
+.text:00000001400022FB                 add     rsi, r13
+.text:00000001400022FE                 mov     rsi, rsi
+.text:0000000140002301                 add     rdx, r13
+.text:0000000140002304                 mov     rdx, rdx
+.text:0000000140002307                 mov     [rsp+9D8h+var_988], rdx
+.text:000000014000230C                 add     rbx, r13
+.text:000000014000230F                 mov     rbx, rbx
+.text:0000000140002312                 test    eax, eax
+.text:0000000140002314                 jz      short loc_1400022A0
+.text:0000000140002316                 mov     edi, eax
+.text:0000000140002318                 xor     r15d, r15d
+.text:000000014000231B                 nop     dword ptr [rax+rax+00h]
+.text:0000000140002320
+.text:0000000140002320 loc_140002320:                          ; CODE XREF: sub_140001780+C55↓j
+.text:0000000140002320                 lea     rbp, [r15+1]
+.text:0000000140002324                 mov     eax, [rsi+r15*4]
+.text:0000000140002328                 mov     eax, eax
+.text:000000014000232A                 mov     eax, eax
+.text:000000014000232C                 add     rax, r13
+.text:000000014000232F                 mov     rax, rax
+.text:0000000140002332                 movaps  [rsp+9D8h+var_8B0+8], xmm6
+.text:000000014000233A                 movaps  [rsp+9D8h+var_8C0+8], xmm6
+.text:0000000140002342                 movaps  xmmword ptr [rsp+9D8h+var_8D0+8], xmm6
+.text:000000014000234A                 movaps  xmmword ptr [rsp+9D8h+var_8E0+8], xmm6
+.text:0000000140002352                 mov     edx, 2
+.text:0000000140002357                 nop     word ptr [rax+rax+00000000h]
+.text:0000000140002360
+.text:0000000140002360 loc_140002360:                          ; CODE XREF: sub_140001780+C17↓j
+.text:0000000140002360                 movzx   ecx, byte ptr [rax+rdx-2]
+.text:0000000140002365                 test    cl, cl
+.text:0000000140002367                 jz      short loc_1400023A0
+.text:0000000140002369                 mov     byte ptr [rsp+rdx+9D8h+var_8E0+6], cl
+.text:0000000140002370                 movzx   ecx, byte ptr [rax+rdx-1]
+.text:0000000140002375                 test    cl, cl
+.text:0000000140002377                 jz      short loc_1400023B0
+.text:0000000140002379                 mov     byte ptr [rsp+rdx+9D8h+var_8E0+7], cl
+.text:0000000140002380                 movzx   ecx, byte ptr ds:(loc_140001894 - 140001894h)[rax+rdx]
+.text:0000000140002384                 test    cl, cl
+.text:0000000140002386                 jz      short loc_1400023B3
+.text:0000000140002388                 mov     byte ptr [rsp+rdx+9D8h+var_8E0+8], cl
+.text:000000014000238F                 add     rdx, 3
+.text:0000000140002393                 cmp     rdx, 41h ; 'A'
+.text:0000000140002397                 jnz     short loc_140002360
+.text:0000000140002399                 mov     edx, 3Fh ; '?'
+.text:000000014000239E                 jmp     short loc_1400023B3
+.text:00000001400023A0 ; ---------------------------------------------------------------------------
+.text:00000001400023A0
+.text:00000001400023A0 loc_1400023A0:                          ; CODE XREF: sub_140001780+BE7↑j
+.text:00000001400023A0                 add     rdx, 0FFFFFFFFFFFFFFFEh
+.text:00000001400023A4                 jmp     short loc_1400023B3
+.text:00000001400023A4 ; ---------------------------------------------------------------------------
+.text:00000001400023A6                 align 10h
+.text:00000001400023B0
+.text:00000001400023B0 loc_1400023B0:                          ; CODE XREF: sub_140001780+BF7↑j
+.text:00000001400023B0                 dec     rdx
+.text:00000001400023B3
+.text:00000001400023B3 loc_1400023B3:                          ; CODE XREF: sub_140001780+C06↑j
+.text:00000001400023B3                                         ; sub_140001780+C1E↑j ...
+.text:00000001400023B3                 lea     rcx, [rsp+9D8h+var_8E0+8]
+.text:00000001400023BB                 call    sub_1400C04B0
+.text:00000001400023C0                 mov     eax, eax
+.text:00000001400023C2                 mov     ecx, r14d
+.text:00000001400023C5                 mov     ecx, ecx
+.text:00000001400023C7                 cmp     eax, ecx
+.text:00000001400023C9                 jz      loc_140002110
+.text:00000001400023CF                 mov     r15, rbp
+.text:00000001400023D2                 cmp     rbp, rdi
+.text:00000001400023D5                 jnz     loc_140002320
+.text:00000001400023DB                 jmp     loc_1400022A0
+.text:00000001400023E0 ; ---------------------------------------------------------------------------
+.text:00000001400023E0
+.text:00000001400023E0 loc_1400023E0:                          ; CODE XREF: sub_140001780+B07↑j
+.text:00000001400023E0                 mov     dword ptr [rsp+9D8h+var_998], 0
+.text:00000001400023E8                 jmp     loc_140002134
+.text:00000001400023ED ; ---------------------------------------------------------------------------
+.text:00000001400023ED
+.text:00000001400023ED loc_1400023ED:                          ; CODE XREF: sub_140001780+B29↑j
+.text:00000001400023ED                 mov     dword ptr [rsp+9D8h+var_998], 0
+.text:00000001400023F5                 mov     rdi, qword ptr [rsp+9D8h+var_998+8]
+.text:00000001400023FA                 jmp     loc_140002134
+.text:00000001400023FF ; ---------------------------------------------------------------------------
+.text:00000001400023FF
+.text:00000001400023FF loc_1400023FF:                          ; CODE XREF: sub_140001780+9BF↑j
+.text:00000001400023FF                 test    byte ptr [rsp+9D8h+var_998], 1
+.text:0000000140002404                 jz      loc_14000288D
+.text:000000014000240A                 mov     rax, qword ptr [rsp+9D8h+Src+8]
+.text:0000000140002412                 mov     [rsp+9D8h+var_940], rax
+.text:000000014000241A                 mov     r14, [rsp+9D8h+var_6D0]
+.text:0000000140002422                 mov     rbp, qword ptr [rsp+9D8h+var_6C8]
+.text:000000014000242A                 mov     rcx, qword ptr [rsp+9D8h+var_6C8+8]
+.text:0000000140002432                 mov     r13, [rsp+9D8h+var_6B8]
+.text:000000014000243A                 mov     r12, qword ptr [rsp+9D8h+var_6B0]
+.text:0000000140002442                 mov     r15, qword ptr [rsp+9D8h+var_6B0+8]
+.text:000000014000244A                 mov     rax, qword ptr [rsp+9D8h+var_6A0]
+.text:0000000140002452                 mov     qword ptr [rsp+9D8h+var_980], rax
+.text:0000000140002457                 mov     rbx, qword ptr [rsp+9D8h+var_6A0+8]
+.text:000000014000245F                 mov     rdi, qword ptr [rsp+9D8h+var_690]
+.text:0000000140002467                 mov     r11, qword ptr [rsp+9D8h+var_690+8]
+.text:000000014000246F                 mov     r10, qword ptr [rsp+9D8h+var_680]
+.text:0000000140002477                 mov     r9, qword ptr [rsp+9D8h+var_680+8]
+.text:000000014000247F                 mov     r8, qword ptr [rsp+9D8h+var_670]
+.text:0000000140002487                 mov     rdx, qword ptr [rsp+9D8h+var_670+8]
+.text:000000014000248F                 mov     rax, qword ptr [rsp+9D8h+var_660]
+.text:0000000140002497                 mov     rsi, qword ptr [rsp+9D8h+var_660+8]
+.text:000000014000249F                 mov     [rsp+9D8h+var_938], rsi
+.text:00000001400024A7                 mov     rsi, qword ptr [rsp+9D8h+var_650]
+.text:00000001400024AF                 mov     [rsp+9D8h+var_920], rsi
+.text:00000001400024B7                 mov     rsi, qword ptr [rsp+9D8h+var_650+8]
+.text:00000001400024BF                 mov     [rsp+9D8h+var_930], rsi
+.text:00000001400024C7                 mov     rsi, qword ptr [rsp+9D8h+var_640]
+.text:00000001400024CF                 mov     qword ptr [rsp+9D8h+var_998], rsi
+.text:00000001400024D4                 mov     rsi, qword ptr [rsp+9D8h+var_640+8]
+.text:00000001400024DC                 mov     qword ptr [rsp+9D8h+var_998+8], rsi
+.text:00000001400024E1                 mov     rsi, qword ptr [rsp+9D8h+var_630]
+.text:00000001400024E9                 mov     [rsp+9D8h+var_988], rsi
+.text:00000001400024EE                 mov     rsi, qword ptr [rsp+9D8h+var_630+8]
+.text:00000001400024F6                 mov     [rsp+9D8h+var_928], rsi
+.text:00000001400024FE                 mov     rsi, r14
+.text:0000000140002501                 mov     r14, [rsp+9D8h+var_620]
+.text:0000000140002509                 mov     [rsp+9D8h+var_918], r14
+.text:0000000140002511                 mov     r14, r13
+.text:0000000140002514                 mov     r13, rbp
+.text:0000000140002517                 mov     rbp, [rsp+9D8h+var_940]
+.text:000000014000251F                 jmp     loc_1400025AA
+.text:0000000140002524 ; ---------------------------------------------------------------------------
+.text:0000000140002524
+.text:0000000140002524 loc_140002524:                          ; CODE XREF: sub_140001780+97A↑j
+.text:0000000140002524                 mov     [rsp+9D8h+var_918], 0
+.text:0000000140002530                 mov     [rsp+9D8h+var_928], 0
+.text:000000014000253C                 mov     [rsp+9D8h+var_988], 0
+.text:0000000140002545                 mov     qword ptr [rsp+9D8h+var_998+8], 0
+.text:000000014000254E                 mov     qword ptr [rsp+9D8h+var_998], 0
+.text:0000000140002557                 mov     [rsp+9D8h+var_930], 0
+.text:0000000140002563                 mov     [rsp+9D8h+var_920], 0
+.text:000000014000256F                 mov     [rsp+9D8h+var_938], 0
+.text:000000014000257B                 xor     eax, eax
+.text:000000014000257D                 xor     edx, edx
+.text:000000014000257F                 xor     r8d, r8d
+.text:0000000140002582                 xor     r9d, r9d
+.text:0000000140002585                 xor     r10d, r10d
+.text:0000000140002588                 xor     r11d, r11d
+.text:000000014000258B                 xor     edi, edi
+.text:000000014000258D                 xor     ebx, ebx
+.text:000000014000258F                 mov     qword ptr [rsp+9D8h+var_980], 0
+.text:0000000140002598                 xor     r15d, r15d
+.text:000000014000259B                 xor     r12d, r12d
+.text:000000014000259E                 xor     r14d, r14d
+.text:00000001400025A1                 xor     ecx, ecx
+.text:00000001400025A3                 xor     r13d, r13d
+.text:00000001400025A6                 xor     esi, esi
+.text:00000001400025A8                 xor     ebp, ebp
+.text:00000001400025AA
+.text:00000001400025AA loc_1400025AA:                          ; CODE XREF: sub_140001780+D9F↑j
+.text:00000001400025AA                 mov     rbp, rbp
+.text:00000001400025AD                 mov     [rsp+9D8h+var_940], rbp
+.text:00000001400025B5                 mov     rsi, rsi
+.text:00000001400025B8                 mov     [rsp+9D8h+var_8F8], rsi
+.text:00000001400025C0                 mov     r13, r13
+.text:00000001400025C3                 mov     [rsp+9D8h+var_908], r13
+.text:00000001400025CB                 mov     rcx, rcx
+.text:00000001400025CE                 mov     [rsp+9D8h+var_8E8], rcx
+.text:00000001400025D6                 mov     r14, r14
+.text:00000001400025D9                 mov     [rsp+9D8h+var_900], r14
+.text:00000001400025E1                 mov     r12, r12
+.text:00000001400025E4                 mov     [rsp+9D8h+var_910], r12
+.text:00000001400025EC                 mov     r15, r15
+.text:00000001400025EF                 mov     [rsp+9D8h+var_8F0], r15
+.text:00000001400025F7                 mov     rcx, qword ptr [rsp+9D8h+var_980]
+.text:00000001400025FC                 mov     rcx, rcx
+.text:00000001400025FF                 mov     qword ptr [rsp+9D8h+var_980], rcx
+.text:0000000140002604                 mov     rbx, rbx
+.text:0000000140002607                 mov     rdi, rdi
+.text:000000014000260A                 mov     r11, r11
+.text:000000014000260D                 mov     rsi, r10
+.text:0000000140002610                 mov     rsi, rsi
+.text:0000000140002613                 mov     r9, r9
+.text:0000000140002616                 mov     r10, r8
+.text:0000000140002619                 mov     r10, r10
+.text:000000014000261C                 mov     rdx, rdx
+.text:000000014000261F                 mov     r8, rax
+.text:0000000140002622                 mov     r8, r8
+.text:0000000140002625                 mov     r12, [rsp+9D8h+var_938]
+.text:000000014000262D                 mov     r12, r12
+.text:0000000140002630                 mov     r13, [rsp+9D8h+var_920]
+.text:0000000140002638                 mov     r13, r13
+.text:000000014000263B                 mov     rbp, [rsp+9D8h+var_930]
+.text:0000000140002643                 mov     rbp, rbp
+.text:0000000140002646                 mov     rax, qword ptr [rsp+9D8h+var_998]
+.text:000000014000264B                 mov     rax, rax
+.text:000000014000264E                 mov     qword ptr [rsp+9D8h+var_998], rax
+.text:0000000140002653                 mov     rax, qword ptr [rsp+9D8h+var_998+8]
+.text:0000000140002658                 mov     rax, rax
+.text:000000014000265B                 mov     qword ptr [rsp+9D8h+var_998+8], rax
+.text:0000000140002660                 mov     rax, [rsp+9D8h+var_988]
+.text:0000000140002665                 mov     rax, rax
+.text:0000000140002668                 mov     [rsp+9D8h+var_988], rax
+.text:000000014000266D                 mov     rcx, [rsp+9D8h+var_928]
+.text:0000000140002675                 mov     rcx, rcx
+.text:0000000140002678                 mov     rax, r8
+.text:000000014000267B                 mov     r8, r10
+.text:000000014000267E                 mov     r10, rsi
+.text:0000000140002681                 mov     rsi, rcx
+.text:0000000140002684                 mov     r14, [rsp+9D8h+var_918]
+.text:000000014000268C                 mov     r14, r14
+.text:000000014000268F                 mov     rcx, [rsp+9D8h+var_940]
+.text:0000000140002697                 mov     qword ptr [rsp+9D8h+Src+8], rcx
+.text:000000014000269F                 mov     rcx, [rsp+9D8h+var_8E8]
+.text:00000001400026A7                 mov     [rsp+9D8h+var_6D0], rcx
+.text:00000001400026AF                 mov     rcx, [rsp+9D8h+var_900]
+.text:00000001400026B7                 mov     qword ptr [rsp+9D8h+var_6C8], rcx
+.text:00000001400026BF                 mov     rcx, [rsp+9D8h+var_908]
+.text:00000001400026C7                 mov     qword ptr [rsp+9D8h+var_6C8+8], rcx
+.text:00000001400026CF                 mov     rcx, [rsp+9D8h+var_8F8]
+.text:00000001400026D7                 mov     [rsp+9D8h+var_6B8], rcx
+.text:00000001400026DF                 mov     rcx, [rsp+9D8h+var_910]
+.text:00000001400026E7                 mov     qword ptr [rsp+9D8h+var_6B0], rcx
+.text:00000001400026EF                 mov     rcx, [rsp+9D8h+var_8F0]
+.text:00000001400026F7                 mov     qword ptr [rsp+9D8h+var_6B0+8], rcx
+.text:00000001400026FF                 mov     rcx, qword ptr [rsp+9D8h+var_980]
+.text:0000000140002704                 mov     qword ptr [rsp+9D8h+var_6A0], rcx
+.text:000000014000270C                 mov     qword ptr [rsp+9D8h+var_6A0+8], rbx
+.text:0000000140002714                 mov     qword ptr [rsp+9D8h+var_690], rdi
+.text:000000014000271C                 mov     qword ptr [rsp+9D8h+var_690+8], r11
+.text:0000000140002724                 mov     qword ptr [rsp+9D8h+var_680], r10
+.text:000000014000272C                 mov     qword ptr [rsp+9D8h+var_680+8], r9
+.text:0000000140002734                 mov     qword ptr [rsp+9D8h+var_670], r8
+.text:000000014000273C                 mov     qword ptr [rsp+9D8h+var_670+8], rdx
+.text:0000000140002744                 mov     qword ptr [rsp+9D8h+var_660], rax
+.text:000000014000274C                 mov     qword ptr [rsp+9D8h+var_660+8], r12
+.text:0000000140002754                 mov     qword ptr [rsp+9D8h+var_650], r13
+.text:000000014000275C                 mov     qword ptr [rsp+9D8h+var_650+8], rbp
+.text:0000000140002764                 mov     rax, qword ptr [rsp+9D8h+var_998]
+.text:0000000140002769                 mov     qword ptr [rsp+9D8h+var_640], rax
+.text:0000000140002771                 mov     rax, qword ptr [rsp+9D8h+var_998+8]
+.text:0000000140002776                 mov     qword ptr [rsp+9D8h+var_640+8], rax
+.text:000000014000277E                 mov     rax, [rsp+9D8h+var_988]
+.text:0000000140002783                 mov     qword ptr [rsp+9D8h+var_630], rax
+.text:000000014000278B                 mov     qword ptr [rsp+9D8h+var_630+8], rsi
+.text:0000000140002793                 mov     [rsp+9D8h+var_620], r14
+.text:000000014000279B                 jmp     short loc_14000279E
+.text:000000014000279B ; ---------------------------------------------------------------------------
+.text:000000014000279D                 db 0E8h
+.text:000000014000279E ; ---------------------------------------------------------------------------
+.text:000000014000279E
+.text:000000014000279E loc_14000279E:                          ; CODE XREF: sub_140001780+101B↑j
+.text:000000014000279E                 lea     rcx, [rsp+9D8h+Src+8]
+.text:00000001400027A6                 call    sub_1400A5870
+.text:00000001400027AB                 jmp     short loc_1400027AE
+.text:00000001400027AB ; ---------------------------------------------------------------------------
+.text:00000001400027AD                 db 0FFh
+.text:00000001400027AE ; ---------------------------------------------------------------------------
+.text:00000001400027AE
+.text:00000001400027AE loc_1400027AE:                          ; CODE XREF: sub_140001780+102B↑j
+.text:00000001400027AE                 lea     rdi, [rsp+9D8h+var_8E0+8]
+.text:00000001400027B6                 mov     rcx, rdi        ; void *
+.text:00000001400027B9                 call    sub_1400C5DE0
+.text:00000001400027BE                 mov     r8d, 20h ; ' '
+.text:00000001400027C4                 mov     rcx, rdi
+.text:00000001400027C7                 mov     rsi, qword ptr [rsp+9D8h+var_948]
+.text:00000001400027CF                 mov     rdx, rsi
+.text:00000001400027D2                 call    sub_1400D6760
+.text:00000001400027D7                 movups  xmm0, xmmword ptr [rsp+9D8h+var_8E0+8]
+.text:00000001400027DF                 movups  xmm1, xmmword ptr [rsp+9D8h+var_8D0+8]
+.text:00000001400027E7                 movaps  [rsp+9D8h+var_280+8], xmm1
+.text:00000001400027EF                 movaps  [rsp+9D8h+var_290+8], xmm0
+.text:00000001400027F7                 lea     rdi, [rsp+9D8h+var_290+8]
+.text:00000001400027FF                 mov     [rsp+9D8h+var_9B8], 20h ; ' '
+.text:0000000140002808                 lea     r9, [rsp+9D8h+var_2A8]
+.text:0000000140002810                 mov     r8d, 20h ; ' '
+.text:0000000140002816                 mov     rcx, rdi
+.text:0000000140002819                 mov     rdx, rsi
+.text:000000014000281C                 call    sub_14007E150
+.text:0000000140002821                 mov     qword ptr [rsp+9D8h+var_980+8], rdi
+.text:0000000140002826                 lea     rax, [rsp+9D8h+var_980+8]
+.text:000000014000282B                 jmp     short loc_140002831
+.text:000000014000282D ; ---------------------------------------------------------------------------
+.text:000000014000282D                 push    rbp
+.text:000000014000282E                 mov     rbp, rsp
+.text:0000000140002831
+.text:0000000140002831 loc_140002831:                          ; CODE XREF: sub_140001780+10AB↑j
+.text:0000000140002831                 mov     rcx, rsi
+.text:0000000140002834                 call    sub_140031E70
+.text:0000000140002839                 jmp     short loc_14000283D
+.text:0000000140002839 ; ---------------------------------------------------------------------------
+.text:000000014000283B                 db 0Fh, 84h
+.text:000000014000283D ; ---------------------------------------------------------------------------
+.text:000000014000283D
+.text:000000014000283D loc_14000283D:                          ; CODE XREF: sub_140001780+10B9↑j
+.text:000000014000283D                 mov     ecx, 811C9DC5h
+.text:0000000140002842                 mov     qword ptr [rsp+9D8h+var_980+8], rcx
+.text:0000000140002847                 lea     rdx, [rsp+9D8h+var_980+8]
+.text:000000014000284C                 mov     r8, qword ptr [rsp+9D8h+var_980+8]
+.text:0000000140002851                 mov     qword ptr [rsp+9D8h+var_980+8], 1000193h
+.text:000000014000285A                 xor     r8, qword ptr [rsp+9D8h+var_980+8]
+.text:000000014000285F                 lea     r9, [rcx+4AD5FF1Fh]
+.text:0000000140002866                 mov     qword ptr [rsp+9D8h+var_980+8], r9
+.text:000000014000286B                 xor     r8, qword ptr [rsp+9D8h+var_980+8]
+.text:0000000140002870                 add     rcx, 3058560h
+.text:0000000140002877                 mov     qword ptr [rsp+9D8h+var_980+8], rcx
+.text:000000014000287C                 xor     r8, qword ptr [rsp+9D8h+var_980+8]
+.text:0000000140002881                 mov     qword ptr [rsp+9D8h+var_980+8], r8
+.text:0000000140002886                 lea     rcx, [rsp+9D8h+var_980+8]
+.text:000000014000288B                 jmp     short loc_1400028A2
+.text:000000014000288D ; ---------------------------------------------------------------------------
+.text:000000014000288D
+.text:000000014000288D loc_14000288D:                          ; CODE XREF: sub_140001780+C84↑j
+.text:000000014000288D                 call    $+5
+.text:0000000140002892                 pop     rax
+.text:0000000140002893                 mov     rcx, qword ptr [rsp+9D8h+var_948]
+.text:000000014000289B                 call    sub_140065D60
+.text:00000001400028A0                 xor     eax, eax
+.text:00000001400028A2
+.text:00000001400028A2 loc_1400028A2:                          ; CODE XREF: sub_140001780+110B↑j
+.text:00000001400028A2                 movaps  xmm6, [rsp+9D8h+var_68]
+.text:00000001400028AA                 movaps  xmm7, [rsp+9D8h+var_58]
+.text:00000001400028B2                 add     rsp, 998h
+.text:00000001400028B9                 pop     rbx
+.text:00000001400028BA                 pop     rbp
+.text:00000001400028BB                 pop     rdi
+.text:00000001400028BC                 pop     rsi
+.text:00000001400028BD                 pop     r12
+.text:00000001400028BF                 pop     r13
+.text:00000001400028C1                 pop     r14
+.text:00000001400028C3                 pop     r15
+.text:00000001400028C5                 retn
+.text:00000001400028C6 ; ---------------------------------------------------------------------------
+.text:00000001400028C6
+.text:00000001400028C6 loc_1400028C6:                          ; CODE XREF: sub_140001780+9C9↑j
+.text:00000001400028C6                 lea     r8, stru_1406C2558 ; "src\\resolve.rs"
+.text:00000001400028CD                 mov     ecx, 18h
+.text:00000001400028D2                 mov     edx, 18h
+.text:00000001400028D7                 call    sub_1400E054C
+.text:00000001400028DC ; ---------------------------------------------------------------------------
+.text:00000001400028DC                 ud2
+.text:00000001400028DE ; ---------------------------------------------------------------------------
+.text:00000001400028DE
+.text:00000001400028DE loc_1400028DE:                          ; CODE XREF: sub_140001780+65E↑j
+.text:00000001400028DE                 lea     r8, stru_1406BAC68 ; "src\\main.rs"
+.text:00000001400028E5                 xor     ecx, ecx
+.text:00000001400028E7                 xor     edx, edx
+.text:00000001400028E9                 call    sub_1400E054C
+.text:00000001400028EE ; ---------------------------------------------------------------------------
+.text:00000001400028EE                 ud2
+.text:00000001400028F0 ; ---------------------------------------------------------------------------
+.text:00000001400028F0
+.text:00000001400028F0 loc_1400028F0:                          ; CODE XREF: sub_140001780+813↑j
+.text:00000001400028F0                 lea     r8, stru_1406BACA0 ; "src\\main.rs"
+.text:00000001400028F7                 xor     ecx, ecx
+.text:00000001400028F9                 xor     edx, edx
+.text:00000001400028FB                 call    sub_1400E054C
+.text:0000000140002900 ; ---------------------------------------------------------------------------
+.text:0000000140002900                 ud2
+.text:0000000140002902 ; ---------------------------------------------------------------------------
+.text:0000000140002902
+.text:0000000140002902 loc_140002902:                          ; CODE XREF: sub_140001780+822↑j
+.text:0000000140002902                 lea     r8, stru_1406BACB8 ; "src\\main.rs"
+.text:0000000140002909                 xor     ecx, ecx
+.text:000000014000290B                 xor     edx, edx
+.text:000000014000290D                 call    sub_1400E054C
+.text:000000014000290D sub_140001780   endp
+.text:000000014000290D
+.text:0000000140002912 ; ---------------------------------------------------------------------------
+.text:0000000140002912                 ud2
+.text:0000000140002912 ; ---------------------------------------------------------------------------
+.text:0000000140002914 algn_140002914:                         ; DATA XREF: .pdata:00000001406CA06C↓o
+.text:0000000140002914                 align 20h
+.text:0000000140002920
+.text:0000000140002920 ; =============== S U B R O U T I N E =======================================
+.text:0000000140002920
+.text:0000000140002920
+.text:0000000140002920 sub_140002920   proc near               ; CODE XREF: sub_140002FA0+8D4↓p
+.text:0000000140002920                                         ; DATA XREF: .pdata:00000001406CA078↓o
