@@ -111,6 +111,41 @@ not CTF-related.
 - `challs/misc_misc01/try_magics.py`: the magic-byte-patching sweep script, reusable if you think
   of a format we haven't tried.
 
+## Update: systematic engineering pass (post-handoff, same session)
+User correctly pointed out this is filed under **Misc, not Forensics** (there's a separate
+Forensic category) - strong signal the intended solve isn't classic file-carving/crypto depth.
+Also recalled a qualifier hint for this same challenge series: "don't mindlessly use AI, think
+like an engineer." Acted on both:
+- Verified `ctf_mcp` isn't a real public PyPI/GitHub package (searched) - it's bespoke, no source
+  to read.
+- Pulled the **real** input schemas for all 3 tools via `/mcp show <tool>` (we'd only checked
+  `toolbox.run`'s before): `challenge.inspect` genuinely takes zero parameters (extra fields
+  silently ignored, not exploitable - just permissive Pydantic config). `toolbox.run`'s `preset`
+  is a strict `Literal[...]` and `min_length` a strict `int` (confirmed via Pydantic's own
+  validation error messages, e.g. passing `"min_length":"five"` gives a real pydantic 2.14
+  `int_parsing` error) - no injection possible, properly typed. `artifact_uri` is a plain
+  length-bounded `str` with no format constraint, but real server-side path resolution rejects
+  every traversal variant tried (naive `..`, absolute path, real-job-id-prefixed traversal) -
+  confirmed this one path returns a raw HTTP 404 bypassing the chat/LLM layer entirely, i.e. it's
+  genuine backend code with correct `pathlib`-style resolution, not an LLM-mediated "tool".
+- Noticed a real structural anomaly in the file's hex: bytes 40-87 (12 little-endian uint16
+  pairs) have distinctly low/clean values vs. the clearly-high-entropy bytes around them -
+  tested as LZ77-style (distance,length) back-reference tokens, both orderings - the distance
+  values (100s-1200s) are far larger than sane for a 112-byte file/output, hypothesis rejected
+  on first principles.
+- Wrote `sweep.py`: automated, systematic (not ad-hoc) AES-ECB/CBC brute force across every key
+  candidate collected during the session (team ID, multiple job IDs, attachment sha256, "789513"
+  in several forms, "CHALLAGE", "super_mode", "Yobdas", "aes_256_ecb", the challenge filename) ×
+  6 key-derivation schemes (raw-padded 16/32, sha256, sha1-16, md5, md5x2) × 3 valid block-aligned
+  offsets (0/16/32 - the only strips giving a length divisible by 16) × ECB/CBC. 216 combinations,
+  zero hits above a 0.85 printable-ratio threshold; best result was 0.50, which is just random-
+  noise baseline (~37% expected by chance), not a real signal.
+- **Conclusion: even with genuine systematic engineering (not prompting), nothing cracked.**
+  Recommend not re-deriving more ad-hoc key guesses - if you have a *specific* new hypothesis for
+  what the key/algorithm actually is (not just "try harder"), `sweep.py` is reusable - add
+  candidates to `key_strings` and rerun. Otherwise this challenge is tabled; time is better spent
+  on the other 19 (misc01 has eaten by far the most session time of any single challenge).
+
 ## Next work (untried ideas, roughly in priority order)
 1. **Drop the chat angle entirely** - it's not just hard, it's demonstrated non-reproducible, so
    no amount of prompt refinement will ever give a trustworthy answer. Don't re-attempt without a
