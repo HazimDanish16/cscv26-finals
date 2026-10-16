@@ -2,7 +2,7 @@
 - Shell for challenges: `wsl -d Ubuntu -e bash -lc '...'` (default WSL distro is docker-desktop — don't use it). User: jimmy.
 - Python venv with pwntools, pycryptodome, z3, gmpy2, angr, capstone, ropper: `~/ctfenv/bin/python` (inside WSL).
 - Put each challenge in challs/<name>/ with notes.md; scripts in tools/ or the chall folder. Treat downloaded files as untrusted; don't run unknown binaries outside WSL.
-- Flag format: CSCV{...} (verify against the rules/first solved chall).
+- Flag format: CSCV2026{...} (confirmed from official notification). Platform: https://jeo.cscv.vn (CTFd - dynamic scoring formula in the notification matches CTFd's exact formula). Login token in secrets/jeo_token.txt (gitignored, never commit it).
 - Dump CTFd: `tools/dump.sh <url> <token or user:pass>` (ctf-dl in venv).
 ## Tools (run in WSL with ~/ctfenv/bin/python; all grep for flag regex in tools/common.py)
 - tools/stego.py <file>   forensics/stego sweep (exif, binwalk, foremost, zsteg, steghide, zbarimg QR/barcode, trailing data, LSB planes); delegates audio files to tools/audio_sweep.py
@@ -130,3 +130,9 @@ crack_archive.sh need the challenge's actual n/e/c or file).
 - tools/hastad_broadcast.py e= n1= c1= n2= c2= [n3= c3= ...]  Hastad broadcast (small e, same plaintext, >=e different moduli) via CRT + integer e-th root. Verified: recovered an exact test flag.
 - tools/lcg_predict.py m= x0= x1= x2= [...] [predict=N]  recovers LCG a,c from >=3 consecutive outputs (known modulus), predicts future outputs. Verified: recovered exact a=1103515245 c=12345 from constructed vectors.
 - tools/discrete_log.py p= g= y= [n=]  discrete log via sympy (Pohlig-Hellman when order is smooth). Verified against a crafted smooth-order prime.
+## Official competition rules (from organizer notification, binding)
+- Window: 7:30-8:00 prep/login-test, 8:00-8:30 opening ceremony, 8:30-16:30 UTC+7 actual contest, 16:30-16:40 close. (All times UTC+7/Vietnam.)
+- Categories confirmed: Web, Reverse engineering, Pwnable, Crypto/ACM, Forensic, IoT/AI.
+- Dynamic scoring (CTFd's exact formula): value = (((minimum-initial)/(decay**2)) * (solve_count**2)) + initial. No stated first-blood bonus, but tied scores rank by earliest submission time - submit the moment a flag is confirmed, don't batch/delay.
+- HARD RULE: do not attack/scan the exam system (jeo.cscv.vn) itself or interfere with other teams - no nmap/gobuster/sqlmap/etc. against the platform or outside what a specific challenge explicitly provides as its target. Only the challenge's own given target (its docker/IP/port) is fair game. Don't reveal exam accounts/questions/flags outside the team.
+- Login token lives in secrets/jeo_token.txt (gitignored). Platform is CTFd-compatible (confirmed by the scoring formula) - tools/dump.sh should work once logged in to get an access token from Settings.
