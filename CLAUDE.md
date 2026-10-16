@@ -2,7 +2,7 @@
 - Shell for challenges: `wsl -d Ubuntu -e bash -lc '...'` (default WSL distro is docker-desktop — don't use it). User: jimmy.
 - Python venv with pwntools, pycryptodome, z3, gmpy2, angr, capstone, ropper: `~/ctfenv/bin/python` (inside WSL).
 - Put each challenge in challs/<name>/ with notes.md; scripts in tools/ or the chall folder. Treat downloaded files as untrusted; don't run unknown binaries outside WSL.
-- Flag format: CSCV2026{...} (confirmed from official notification). Platform: https://jeo.cscv.vn (CTFd - dynamic scoring formula in the notification matches CTFd's exact formula). Login token in secrets/jeo_token.txt (gitignored, never commit it).
+- Flag format: CSCV2026{...} (confirmed from official notification). Platform: https://jeo.cscv.vn - NOT CTFd (custom platform, confirmed by user). tools/dump.sh (ctf-dl) likely won't work - don't assume it does. Need to inspect the real site (Chrome/manual) to figure out its actual structure before building any scraper for it. Login token in secrets/jeo_token.txt (gitignored, never commit it).
 - Dump CTFd: `tools/dump.sh <url> <token or user:pass>` (ctf-dl in venv).
 ## Tools (run in WSL with ~/ctfenv/bin/python; all grep for flag regex in tools/common.py)
 - tools/stego.py <file>   forensics/stego sweep (exif, binwalk, foremost, zsteg, steghide, zbarimg QR/barcode, trailing data, LSB planes); delegates audio files to tools/audio_sweep.py

@@ -17,3 +17,4 @@ challs/**/ctfd_token.txt
 # OS junk
 .DS_Store
 Thumbs.db
+secrets/
