@@ -6,14 +6,18 @@ login token (secrets/jeo_token.txt - that's exchanged for this session token at 
 Base API: https://jeo.cscv.vn/api/v2/ . Error shape: {"kind": "...", "message": "..."}.
 
 Usage:
-  jeo_api.py challs                 list all challenges (VERIFIED: path+auth confirmed working,
-                                     got the expected "badNotStarted" response pre-contest)
-  jeo_api.py chall <id>              get one challenge's detail (UNVERIFIED GUESS - path not seen
-                                     for real yet, confirm against an actual challenge once visible)
-  jeo_api.py submit <id> <flag>      submit a flag (UNVERIFIED GUESS - same caveat, and this is
-                                     irreversible/rate-limited - do NOT trust blind, watch the
-                                     first real response carefully before relying on it)
-  jeo_api.py raw <path>               GET any other /api/v2/<path>
+  jeo_api.py challs                   list all challenges (VERIFIED - full description/points/
+                                       category/instancer-flag all come back in this one call,
+                                       no separate per-challenge detail endpoint needed)
+  jeo_api.py start <id>                start/get the challenge's instance (VERIFIED: PUT
+                                       .../integrations/challs/<id>/instance - captured from the
+                                       real "Start instance" button click)
+  jeo_api.py status <id>                poll instance status (VERIFIED: GET same path)
+  jeo_api.py submit <id> <flag>        submit a flag (UNVERIFIED GUESS at /challs/<id>/submit -
+                                       could not confirm the real path without risking a wasted
+                                       submission; VERIFY THE RESPONSE CAREFULLY on first real use,
+                                       and watch the Network tab if it looks wrong)
+  jeo_api.py raw <method> <path> [json]  arbitrary call to any other /api/v2/<path>
 
 NOTE: session token may expire/rotate - if calls start 401ing, re-extract it from the browser's
 localStorage('token') via Claude-in-Chrome (javascript_tool: localStorage.getItem('token')) and
@@ -44,12 +48,19 @@ def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else None
     if cmd == 'challs':
         status, body = req('GET', 'challs')
-    elif cmd == 'chall':
-        status, body = req('GET', f'challs/{sys.argv[2]}')
+    elif cmd == 'start':
+        status, body = req('PUT', f'integrations/challs/{sys.argv[2]}/instance')
+    elif cmd == 'status':
+        status, body = req('GET', f'integrations/challs/{sys.argv[2]}/instance')
+    elif cmd == 'stop':
+        status, body = req('DELETE', f'integrations/challs/{sys.argv[2]}/instance')
     elif cmd == 'submit':
         status, body = req('POST', f'challs/{sys.argv[2]}/submit', json={'flag': sys.argv[3]})
     elif cmd == 'raw':
-        status, body = req('GET', sys.argv[2])
+        method = sys.argv[2] if len(sys.argv) > 3 else 'GET'
+        path = sys.argv[3] if len(sys.argv) > 3 else sys.argv[2]
+        body_json = json.loads(sys.argv[4]) if len(sys.argv) > 4 else None
+        status, body = req(method, path, json=body_json)
     else:
         print(__doc__)
         return
